@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class XDViewController;
+@class JASidePanelController;
 
 @interface XDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) XDViewController *viewController;
+@property (strong, nonatomic) JASidePanelController *viewController;
 
 @end

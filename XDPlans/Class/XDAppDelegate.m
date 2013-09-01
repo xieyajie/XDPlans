@@ -8,7 +8,11 @@
 
 #import "XDAppDelegate.h"
 
-#import "XDViewController.h"
+#import "JASidePanelController.h"
+#import "XDMenuViewController.h"
+#import "XDTodayPlanViewController.h"
+
+#define KSIDE 0
 
 @implementation XDAppDelegate
 
@@ -16,7 +20,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[XDViewController alloc] initWithNibName:@"XDViewController" bundle:nil];
+    self.viewController = [[JASidePanelController alloc] init];
+    self.viewController.shouldDelegateAutorotateToVisiblePanel = YES;
+    
+    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
+    if (KSIDE == 0) {
+        self.viewController.leftPanel = [[XDMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+    }
+    else{
+        self.viewController.rightPanel = [[UIViewController alloc] init];
+    }
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
