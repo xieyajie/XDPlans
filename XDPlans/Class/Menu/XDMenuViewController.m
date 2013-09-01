@@ -34,10 +34,10 @@
     if (self) {
         // Custom initialization
         _dataSource = [[NSMutableArray alloc] init];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有计划", KMENU_TITLE, @"menu_allPlans.png", KMENU_NORMOLICON, @"", KMENU_SELECTEDICON, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"所有计划", KMENU_TITLE, @"menu_allPlans.png", KMENU_NORMOLICON, @"menu_allPlansSelected.png", KMENU_SELECTEDICON, nil]];
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"活跃计划", KMENU_TITLE, @"menu_actionPlan.png", KMENU_NORMOLICON, @"menu_actionPlanSelected.png", KMENU_SELECTEDICON, nil]];
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"账号", KMENU_TITLE, @"menu_allPlans.png", KMENU_NORMOLICON, @"", KMENU_SELECTEDICON, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"设置", KMENU_TITLE, @"menu_allPlans.png", KMENU_NORMOLICON, @"", KMENU_SELECTEDICON, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"设置", KMENU_TITLE, @"menu_setting.png", KMENU_NORMOLICON, @"menu_settingSelected.png", KMENU_SELECTEDICON, nil]];
         
         _selectedRow = 1;
     }
@@ -69,6 +69,10 @@
     if (_headerView == nil) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 150)];
         _headerView.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((_headerView.frame.size.width * 0.8 - 80) / 2, 30, 80, 80)];
+        imgView.image = [UIImage imageNamed:@"menu_headerImageDefault.png"];
+        [_headerView addSubview:imgView];
     }
     
     return _headerView;
