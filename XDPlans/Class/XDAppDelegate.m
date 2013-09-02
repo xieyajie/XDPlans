@@ -12,6 +12,9 @@
 #import "XDMenuViewController.h"
 #import "XDTodayPlanViewController.h"
 
+#import "UIColor+Category.h"
+#import "XDPlanLocalDefault.h"
+
 #define KSIDE 0
 
 @implementation XDAppDelegate
@@ -22,8 +25,12 @@
     // Override point for customization after application launch.
     self.viewController = [[JASidePanelController alloc] init];
     self.viewController.shouldDelegateAutorotateToVisiblePanel = YES;
+    self.viewController.leftGapPercentage = KSIDESLIP_PERCENT;
+    self.viewController.allowRightSwipe = NO;
     
-    self.viewController.centerPanel = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
+    UINavigationController *centerNavigation = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
+    centerNavigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    self.viewController.centerPanel = centerNavigation;
     if (KSIDE == 0) {
         self.viewController.leftPanel = [[XDMenuViewController alloc] initWithStyle:UITableViewStylePlain];
     }

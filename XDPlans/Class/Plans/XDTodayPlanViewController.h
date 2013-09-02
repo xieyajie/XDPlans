@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDTodayPlanViewController : UIViewController
+@interface XDTodayPlanViewController : UITableViewController
 
 @end

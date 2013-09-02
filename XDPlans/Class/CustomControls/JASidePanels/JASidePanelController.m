@@ -294,7 +294,7 @@ static char ja_kvoContext;
 }
 
 - (void)stylePanel:(UIView *)panel {
-    panel.layer.cornerRadius = 6.0f;
+//    panel.layer.cornerRadius = 6.0f;
     panel.clipsToBounds = YES;
 }
 
@@ -951,6 +951,10 @@ static char ja_kvoContext;
 #pragma mark - Public Methods
 
 - (UIBarButtonItem *)leftButtonForCenterPanel {
+//    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    imgView.image = [[self class] defaultImage];
+//    return [[UIBarButtonItem alloc] initWithCustomView:imgView];
+    
     return [[UIBarButtonItem alloc] initWithImage:[[self class] defaultImage] style:UIBarButtonItemStylePlain target:self action:@selector(toggleLeftPanel:)];
 }
 
