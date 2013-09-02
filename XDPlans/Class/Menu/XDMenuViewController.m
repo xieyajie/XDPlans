@@ -158,22 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSDictionary *oldDic = [_dataSource objectAtIndex:_selectedRow];
-//    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0]];
-//    if (oldDic != nil && [oldDic count] > 0 && oldCell) {
-//        oldCell.contentView.backgroundColor = [UIColor clearColor];
-//        oldCell.imageView.image = [UIImage imageNamed:[oldDic objectForKey:KMENU_NORMOLICON]];
-//        oldCell.textLabel.textColor = [UIColor colorWithRed:121 / 255.0 green:126 / 255.0 blue:134 / 255.0 alpha:1.0];
-//    }
-//    
-//    _selectedRow = indexPath.row;
-//    NSDictionary *dic = [_dataSource objectAtIndex:indexPath.row];
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    if (dic != nil && [dic count] > 0) {
-//        cell.contentView.backgroundColor = [UIColor colorWithRed:28 / 255.0 green:32 / 255.0 blue:39 / 255.0 alpha:1.0];
-//        cell.imageView.image = [UIImage imageNamed:[dic objectForKey:KMENU_SELECTEDICON]];
-//        cell.textLabel.textColor = [UIColor whiteColor];
-//    }
+    
 }
 
 @end
