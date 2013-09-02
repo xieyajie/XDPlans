@@ -32,6 +32,12 @@
 #define KTODAY_CELL_HEIGHT_NORMAL 80.0
 #define KTODAY_CELL_HEIGHT_CONTENT 150.0
 
+//weather
+#define KWEATHER_TEMP_MAX @"temp1"
+#define KWEATHER_TEMP_MIN @"temp2"
+#define KWEATHER_WEATHER @"weather"
+#define KWEATHER_IMAGE @"weather_image"
+
 
 
 #endif

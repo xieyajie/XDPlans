@@ -9,6 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDTodayPlanViewController.h"
 
+#import "XDWeatherManager.h"
+
 #import "XDPlanLocalDefault.h"
 
 #define KTODAY_DATA_TITLE @"title"
@@ -70,44 +72,33 @@
     if (_headerView == nil) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 80)];
         _headerView.backgroundColor = [UIColor clearColor];
+        _headerView.layer.borderWidth = 1.0f;
+        _headerView.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
         
-        //dateView
-        UIView *dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-        dateView.backgroundColor = [UIColor clearColor];
-        dateView.layer.borderWidth = 2.0f;
-        dateView.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
-        [_headerView addSubview:dateView];
-        
-        UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, 20)];
-        weekLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        weekLabel.textAlignment = KTextAlignmentCenter;
-        weekLabel.font = [UIFont systemFontOfSize:14.0];
-        weekLabel.textColor = [UIColor whiteColor];
-        weekLabel.text = @"星期一";
-        [dateView addSubview:weekLabel];
-        
-        UILabel *ymLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, dateView.frame.size.height - 20, dateView.frame.size.width, 20)];
+        UILabel *ymLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
         ymLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        ymLabel.textAlignment = KTextAlignmentCenter;
         ymLabel.font = [UIFont systemFontOfSize:14.0];
         ymLabel.textColor = [UIColor whiteColor];
-        ymLabel.text = @"2013 - 09";
-        [dateView addSubview:ymLabel];
+        ymLabel.text = @"2013 - 09  星期一";
+        [_headerView addSubview:ymLabel];
         
-        UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, dateView.frame.size.width, dateView.frame.size.height - 40)];
+        //dateView
+        UIView *dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 70, 60)];
+        dateView.backgroundColor = [UIColor clearColor];
+        [_headerView addSubview:dateView];
+        
+        UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, dateView.frame.size.height)];
         dayLabel.backgroundColor = [UIColor whiteColor];
         dayLabel.textAlignment = KTextAlignmentCenter;
         dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
         dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
-        dayLabel.text = @"2";
+        dayLabel.text = @"29";
         [dateView addSubview:dayLabel];
         
         //moodButton
         UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        moodButton.frame = CGRectMake(self.tableView.frame.size.width - 80, 0, 80, 80);
-        moodButton.backgroundColor = [UIColor lightGrayColor];
-//        moodButton.layer.borderWidth = 2.0f;
-//        moodButton.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
+        moodButton.frame = CGRectMake(self.tableView.frame.size.width - 70, 20, 70, 60);
+        moodButton.backgroundColor = [UIColor whiteColor];
         [_headerView addSubview:moodButton];
         
         moodButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
@@ -118,11 +109,32 @@
         [moodButton setTitleEdgeInsets:UIEdgeInsetsMake(moodButton.frame.size.height - 20, 0, 0, 0)];
         
         //weatherButton
-        UIButton *weatherButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        weatherButton.frame = CGRectMake(dateView.frame.origin.x + dateView
-                                         .frame.size.width, 0, self.tableView.frame.size.width - dateView.frame.size.width - moodButton.frame.size.width, 80);
-        weatherButton.backgroundColor = [UIColor redColor];
-        [_headerView addSubview:weatherButton];
+        UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
+                                                                       .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width - moodButton.frame.size.width, 60)];
+        weatherView.backgroundColor = [UIColor whiteColor];
+        [_headerView addSubview:weatherView];
+        
+        UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, weatherView.frame.size.height)];
+        leftLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+        [weatherView addSubview:leftLine];
+        
+        UIView *rightLine = [[UIView alloc] initWithFrame:CGRectMake(weatherView.frame.size.width - 1, 0, 1, weatherView.frame.size.height)];
+        rightLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+        [weatherView addSubview:rightLine];
+        
+        NSDictionary *weatherDic = [[XDWeatherManager shareWeather] weatherInfo];
+
+        UIImageView *weatherImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, weatherView.frame.size.width / 3, weatherView.frame.size.height)];
+        weatherImgView.contentMode = UIViewContentModeScaleAspectFit;
+        weatherImgView.image = [weatherDic objectForKey:KWEATHER_IMAGE];
+        [weatherView addSubview:weatherImgView];
+        
+        NSString *sweather = [[NSString alloc]initWithFormat:@"%@\n%@~%@",[weatherDic objectForKey:KWEATHER_WEATHER], [weatherDic objectForKey:KWEATHER_TEMP_MIN], [weatherDic objectForKey:KWEATHER_TEMP_MAX]];
+        UILabel *weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(weatherImgView.frame.origin.x + weatherImgView.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
+        weatherLabel.numberOfLines = 0;
+        weatherLabel.backgroundColor = [UIColor clearColor];
+        weatherLabel.text = sweather;
+        [weatherView addSubview:weatherLabel];
     }
     
     return _headerView;
