@@ -97,7 +97,7 @@
         [_headerView addSubview:dateView];
         
         UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, dateView.frame.size.height)];
-        dayLabel.backgroundColor = [UIColor whiteColor];
+        dayLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
         dayLabel.textAlignment = KTextAlignmentCenter;
         dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
         dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
@@ -120,7 +120,7 @@
         //weatherButton
         UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
                                                                        .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width , 60)];
-        weatherView.backgroundColor = [UIColor whiteColor];
+        weatherView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
         [_headerView addSubview:weatherView];
         
         UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, weatherView.frame.size.height)];

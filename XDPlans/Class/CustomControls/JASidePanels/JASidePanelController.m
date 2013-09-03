@@ -367,12 +367,12 @@ static char ja_kvoContext;
         JASidePanelState previousState = self.state;
         self.state = JASidePanelCenterVisible;
         [UIView animateWithDuration:0.2f animations:^{
-            if (self.bounceOnCenterPanelChange) {
-                // first move the centerPanel offscreen
-                CGFloat x = (previousState == JASidePanelLeftVisible) ? self.view.bounds.size.width : -self.view.bounds.size.width;
-                _centerPanelRestingFrame.origin.x = x;
-            }
-            self.centerPanelContainer.frame = _centerPanelRestingFrame;
+//            if (self.bounceOnCenterPanelChange) {
+//                // first move the centerPanel offscreen
+//                CGFloat x = (previousState == JASidePanelLeftVisible) ? self.view.bounds.size.width : -self.view.bounds.size.width;
+//                _centerPanelRestingFrame.origin.x = x;
+//            }
+//            self.centerPanelContainer.frame = _centerPanelRestingFrame;
         } completion:^(__unused BOOL finished) {
             [self _swapCenter:previous previousState:previousState with:_centerPanel];
             [self _showCenterPanel:YES bounce:NO];

@@ -10,6 +10,7 @@
 #import "XDMenuViewController.h"
 
 #import "JASidePanelController.h"
+#import "XDAccountLoginViewController.h"
 #import "XDTodayPlanViewController.h"
 #import "XDAllPlansViewController.h"
 #import "XDMenuCell.h"
@@ -94,6 +95,9 @@
         nameLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0];
         nameLabel.text = @"未登录";
         [_headerView addSubview:nameLabel];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeaderView:)];
+        [_headerView addGestureRecognizer:tap];
     }
     
     return _headerView;
@@ -174,6 +178,16 @@
         UINavigationController *navigation = (UINavigationController *)self.sidePanelController.centerPanel;
         navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
     }
+}
+
+#pragma mark - GestureRecognizer
+
+- (void)tapHeaderView:(UITapGestureRecognizer *)tap
+{
+    XDAccountLoginViewController *accountVC = [[XDAccountLoginViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:accountVC];
+    navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    self.sidePanelController.centerPanel = navigation;
 }
 
 @end

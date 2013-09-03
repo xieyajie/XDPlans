@@ -42,6 +42,11 @@
 		3A8FA86E17D576F60077BAFE /* MY_ICON_010.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86417D576F60077BAFE /* MY_ICON_010.png */; };
 		3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */; };
 		3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */; };
+		3A8FA87917D5CD600077BAFE /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA87817D5CD600077BAFE /* XDAccountLoginViewController.m */; };
+		3A8FA87F17D5E73A0077BAFE /* account_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87B17D5E73A0077BAFE /* account_contacts@2x.png */; };
+		3A8FA88017D5E73A0077BAFE /* account_contactsSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87C17D5E73A0077BAFE /* account_contactsSelected@2x.png */; };
+		3A8FA88117D5E73A0077BAFE /* account_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87D17D5E73A0077BAFE /* account_email@2x.png */; };
+		3A8FA88217D5E73A0077BAFE /* account_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87E17D5E73A0077BAFE /* account_password@2x.png */; };
 		3AE2C9CF17D4C7A60020C93F /* 中雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BC17D4C7A60020C93F /* 中雨.png */; };
 		3AE2C9D017D4C7A60020C93F /* 中雨转晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BD17D4C7A60020C93F /* 中雨转晴.png */; };
 		3AE2C9D117D4C7A60020C93F /* 中雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BE17D4C7A60020C93F /* 中雪.png */; };
@@ -119,6 +124,12 @@
 		3A8FA87117D5A8810077BAFE /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
 		3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
 		3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_unaction@2x.png"; sourceTree = "<group>"; };
+		3A8FA87717D5CD600077BAFE /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
+		3A8FA87817D5CD600077BAFE /* XDAccountLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAccountLoginViewController.m; sourceTree = "<group>"; };
+		3A8FA87B17D5E73A0077BAFE /* account_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_contacts@2x.png"; sourceTree = "<group>"; };
+		3A8FA87C17D5E73A0077BAFE /* account_contactsSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_contactsSelected@2x.png"; sourceTree = "<group>"; };
+		3A8FA87D17D5E73A0077BAFE /* account_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_email@2x.png"; sourceTree = "<group>"; };
+		3A8FA87E17D5E73A0077BAFE /* account_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_password@2x.png"; sourceTree = "<group>"; };
 		3AE2C9BC17D4C7A60020C93F /* 中雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨.png"; sourceTree = "<group>"; };
 		3AE2C9BD17D4C7A60020C93F /* 中雨转晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨转晴.png"; sourceTree = "<group>"; };
 		3AE2C9BE17D4C7A60020C93F /* 中雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雪.png"; sourceTree = "<group>"; };
@@ -187,6 +198,8 @@
 		3A3B919317D2FBBC0055EC4A /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				3A8FA87717D5CD600077BAFE /* XDAccountLoginViewController.h */,
+				3A8FA87817D5CD600077BAFE /* XDAccountLoginViewController.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -253,6 +266,7 @@
 		3A3B91AB17D30CC70055EC4A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A8FA87A17D5E73A0077BAFE /* account */,
 				3A8FA87417D5B5680077BAFE /* plans */,
 				3A8FA85A17D576F60077BAFE /* mood */,
 				3A56B62817D4758200FF6400 /* Menu */,
@@ -321,6 +335,17 @@
 				3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */,
 			);
 			path = plans;
+			sourceTree = "<group>";
+		};
+		3A8FA87A17D5E73A0077BAFE /* account */ = {
+			isa = PBXGroup;
+			children = (
+				3A8FA87B17D5E73A0077BAFE /* account_contacts@2x.png */,
+				3A8FA87C17D5E73A0077BAFE /* account_contactsSelected@2x.png */,
+				3A8FA87D17D5E73A0077BAFE /* account_email@2x.png */,
+				3A8FA87E17D5E73A0077BAFE /* account_password@2x.png */,
+			);
+			path = account;
 			sourceTree = "<group>";
 		};
 		3AE2C9BA17D4C7A60020C93F /* Weather */ = {
@@ -481,12 +506,14 @@
 				3A56B63B17D47C2400FF6400 /* menu_allPlansSelected@2x.png in Resources */,
 				3A8FA86E17D576F60077BAFE /* MY_ICON_010.png in Resources */,
 				3A56B63417D4758200FF6400 /* menu_userLogin2@2x.png in Resources */,
+				3A8FA88217D5E73A0077BAFE /* account_password@2x.png in Resources */,
 				3A8FA86D17D576F60077BAFE /* MY_ICON_009.png in Resources */,
 				3A8FA86B17D576F60077BAFE /* MY_ICON_007.png in Resources */,
 				3A8FA86A17D576F60077BAFE /* MY_ICON_006.png in Resources */,
 				3A56B63317D4758200FF6400 /* menu_setting@2x.png in Resources */,
 				3A56B63817D4767A00FF6400 /* menu_actionPlanSelected2@2x.png in Resources */,
 				3A8FA86817D576F60077BAFE /* MY_ICON_004.png in Resources */,
+				3A8FA88117D5E73A0077BAFE /* account_email@2x.png in Resources */,
 				3A56B63217D4758200FF6400 /* menu_allPlans@2x.png in Resources */,
 				3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */,
 				3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */,
@@ -495,6 +522,8 @@
 				3AE2C9D117D4C7A60020C93F /* 中雪.png in Resources */,
 				3AE2C9D217D4C7A60020C93F /* 冰.png in Resources */,
 				3AE2C9D317D4C7A60020C93F /* 多云.png in Resources */,
+				3A8FA88017D5E73A0077BAFE /* account_contactsSelected@2x.png in Resources */,
+				3A8FA87F17D5E73A0077BAFE /* account_contacts@2x.png in Resources */,
 				3AE2C9D417D4C7A60020C93F /* 大雨.png in Resources */,
 				3A8FA86917D576F60077BAFE /* MY_ICON_005.png in Resources */,
 				3AE2C9D517D4C7A60020C93F /* 大雨转晴.png in Resources */,
@@ -523,6 +552,7 @@
 			files = (
 				3AFBF62017D21B2700CA9A56 /* main.m in Sources */,
 				3A3B91A117D2FBBC0055EC4A /* JASidePanelController.m in Sources */,
+				3A8FA87917D5CD600077BAFE /* XDAccountLoginViewController.m in Sources */,
 				3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */,
 				3A3B91A217D2FBBC0055EC4A /* UIViewController+JASidePanel.m in Sources */,
 				3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */,

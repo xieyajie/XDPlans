@@ -45,7 +45,7 @@
     
     UIFont *font = [UIFont systemFontOfSize:16.0];
     CGSize size = [_title sizeWithFont:font constrainedToSize:CGSizeMake(320, 20)];
-    _titleLabel.frame = CGRectMake(10, 0, size.width + 20, 20);
+    _titleLabel.frame = CGRectMake(320 - (size.width + 40), 0, size.width + 20, 20);
     _titleLabel.text = _title;
 }
 
