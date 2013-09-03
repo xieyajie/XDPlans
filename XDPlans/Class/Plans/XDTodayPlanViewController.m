@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDTodayPlanViewController.h"
 
+#import "XDTodayPlanCell.h"
 #import "XDWeatherManager.h"
 
 #import "XDPlanLocalDefault.h"
@@ -16,7 +17,16 @@
 #define KTODAY_DATA_TITLE @"title"
 #define KTODAY_DATA_ICON_NORMAL @"icon_normal"
 #define KTODAY_DATA_ICON_SELECTED @"icon_selected"
-#define KTODAY_CELL_LAYOUTTYPE @"layoutType"
+#define KTODAY_CELL_COLOR @"cell_color"
+#define KTODAY_CELL_LAYOUTTYPE @"cell_layoutType"
+#define KTODAY_CELL_IDENTIFIER @"cell_dentifier"
+
+#define KSECTION_MOOD 0
+#define KSECTION_WORKLOAD 1
+#define KSECTION_FINISHFAITH 2
+#define KSECTION_PLAN 3
+#define KSECTION_SUMMARY 4
+#define KSECTION_GRADE 5
 
 @interface XDTodayPlanViewController ()
 {
@@ -37,12 +47,12 @@
     if (self) {
         // Custom initialization
         _dataSource = [NSMutableArray array];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日工作量指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"完成信心指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日安排", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:1], KTODAY_CELL_LAYOUTTYPE, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日安排", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日总结", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, nil]];
-        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"给自己今天的表现打个分吧", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"心情", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"MoodCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日工作量指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"WordloadCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"完成信心指数", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"FinishCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日安排", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:1], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"PlanCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日总结", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:2], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"SummaryCell", KTODAY_CELL_IDENTIFIER, nil]];
+        [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"给自己今天的表现打个分吧", KTODAY_DATA_TITLE, @"menu_allPlans.png", KTODAY_DATA_ICON_NORMAL, @"menu_allPlansSelected.png", KTODAY_DATA_ICON_SELECTED, [NSNumber numberWithInteger:0], KTODAY_CELL_LAYOUTTYPE, [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0], KTODAY_CELL_COLOR, @"GrandCell", KTODAY_CELL_IDENTIFIER, nil]];
     }
     return self;
 }
@@ -56,7 +66,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     
     self.tableView.tableHeaderView = self.headerView;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,16 +80,15 @@
 - (UIView *)headerView
 {
     if (_headerView == nil) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 80)];
+        CGFloat viewHeight = 80.0;
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight + 10)];
         _headerView.backgroundColor = [UIColor clearColor];
-        _headerView.layer.borderWidth = 1.0f;
-        _headerView.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
         
         UILabel *ymLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
         ymLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         ymLabel.font = [UIFont systemFontOfSize:14.0];
         ymLabel.textColor = [UIColor whiteColor];
-        ymLabel.text = @"2013 - 09  星期一";
+        ymLabel.text = @"  2013 - 09  星期一";
         [_headerView addSubview:ymLabel];
         
         //dateView
@@ -95,32 +104,28 @@
         dayLabel.text = @"29";
         [dateView addSubview:dayLabel];
         
-        //moodButton
-        UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        moodButton.frame = CGRectMake(self.tableView.frame.size.width - 70, 20, 70, 60);
-        moodButton.backgroundColor = [UIColor whiteColor];
-        [_headerView addSubview:moodButton];
-        
-        moodButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-        moodButton.titleLabel.textAlignment = KTextAlignmentCenter;
-        [moodButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [moodButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-        [moodButton setTitle:@"选个心情呗" forState:UIControlStateNormal];
-        [moodButton setTitleEdgeInsets:UIEdgeInsetsMake(moodButton.frame.size.height - 20, 0, 0, 0)];
+//        //moodButton
+//        UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        moodButton.frame = CGRectMake(self.tableView.frame.size.width - 70, 20, 70, 60);
+//        moodButton.backgroundColor = [UIColor whiteColor];
+//        [_headerView addSubview:moodButton];
+//        
+//        moodButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+//        moodButton.titleLabel.textAlignment = KTextAlignmentCenter;
+//        [moodButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        [moodButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//        [moodButton setTitle:@"选个心情呗" forState:UIControlStateNormal];
+//        [moodButton setTitleEdgeInsets:UIEdgeInsetsMake(moodButton.frame.size.height - 20, 0, 0, 0)];
         
         //weatherButton
         UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
-                                                                       .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width - moodButton.frame.size.width, 60)];
+                                                                       .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width , 60)];
         weatherView.backgroundColor = [UIColor whiteColor];
         [_headerView addSubview:weatherView];
         
         UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, weatherView.frame.size.height)];
         leftLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         [weatherView addSubview:leftLine];
-        
-        UIView *rightLine = [[UIView alloc] initWithFrame:CGRectMake(weatherView.frame.size.width - 1, 0, 1, weatherView.frame.size.height)];
-        rightLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        [weatherView addSubview:rightLine];
         
         NSDictionary *weatherDic = [[XDWeatherManager shareWeather] weatherInfo];
 
@@ -151,20 +156,48 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [_dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSDictionary *dic = [_dataSource objectAtIndex:indexPath.row];
+    NSString *CellIdentifier = [dic objectForKey:KTODAY_CELL_IDENTIFIER];
+    XDTodayPlanCell *cell = (XDTodayPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[XDTodayPlanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        switch (indexPath.row) {
+            case KSECTION_MOOD:
+                [cell configurationMood];
+                break;
+            case KSECTION_WORKLOAD:
+                [cell configurationWordload];
+                break;
+            case KSECTION_FINISHFAITH:
+                [cell configurationFinishFaith];
+                break;
+            case KSECTION_PLAN:
+                [cell configurationPlan];
+                break;
+            case KSECTION_SUMMARY:
+                [cell configurationSummary];
+                break;
+            case KSECTION_GRADE:
+                [cell configurationGrand];
+                break;
+                
+            default:
+                break;
+        }
     }
     
-    cell.textLabel.text = @"123";
+    cell.title = [dic objectForKey:KTODAY_DATA_TITLE];
+    cell.titleColor = [dic objectForKey:KTODAY_CELL_COLOR];
     
     return cell;
 }
@@ -173,6 +206,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger type = [[[_dataSource objectAtIndex:indexPath.row] objectForKey:KTODAY_CELL_LAYOUTTYPE] integerValue];
+    if (type == 0) {
+        return KTODAY_CELL_HEIGHT_NORMAL;
+    }
+    
     return KTODAY_CELL_HEIGHT_CONTENT;
 }
 

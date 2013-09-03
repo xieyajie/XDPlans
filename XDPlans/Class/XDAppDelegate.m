@@ -28,9 +28,9 @@
     self.viewController.leftGapPercentage = KSIDESLIP_PERCENT;
     self.viewController.allowRightSwipe = NO;
     
-    UINavigationController *centerNavigation = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
-    centerNavigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
-    self.viewController.centerPanel = centerNavigation;
+    UINavigationController *todayNavigation = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
+    todayNavigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    self.viewController.centerPanel = todayNavigation;
     if (KSIDE == 0) {
         self.viewController.leftPanel = [[XDMenuViewController alloc] initWithStyle:UITableViewStylePlain];
     }

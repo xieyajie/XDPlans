@@ -9,6 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDMenuViewController.h"
 
+#import "JASidePanelController.h"
+#import "XDTodayPlanViewController.h"
+#import "XDAllPlansViewController.h"
 #import "XDMenuCell.h"
 
 #import "XDPlanLocalDefault.h"
@@ -118,25 +121,13 @@
     // Configure the cell...
     if (cell == nil) {
         cell = [[XDMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.availableSize = CGSizeMake(self.tableView.frame.size.width * KSIDESLIP_PERCENT, KSIDESLIP_CELL_HEIGHT);
     }
     
     NSDictionary *dic = [_dataSource objectAtIndex:indexPath.row];
     if (dic != nil && [dic count] > 0) {
-//        if (_selectedRow == indexPath.row) {
-//            cell.contentView.backgroundColor = [UIColor colorWithRed:28 / 255.0 green:32 / 255.0 blue:39 / 255.0 alpha:1.0];
-//            cell.imageView.image = [UIImage imageNamed:[dic objectForKey:KMENU_SELECTEDICON]];
-//            cell.textLabel.textColor = [UIColor whiteColor];
-//        }
-//        else{
-//            cell.contentView.backgroundColor = [UIColor clearColor];
-//            cell.imageView.image = [UIImage imageNamed:[dic objectForKey:KMENU_NORMOLICON]];
-//            cell.textLabel.textColor = [UIColor colorWithRed:121 / 255.0 green:126 / 255.0 blue:134 / 255.0 alpha:1.0];
-//        }
-//        
-//        cell.textLabel.text = [dic objectForKey:KMENU_TITLE];
-        
         cell.normalIcon = [UIImage imageNamed:[dic objectForKey:KMENU_NORMOLICON]];
         cell.highlightedIcon = [UIImage imageNamed:[dic objectForKey:KMENU_SELECTEDICON]];
         cell.titleLabel.text = [dic objectForKey:KMENU_TITLE];
@@ -158,7 +149,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (_selectedRow != indexPath.row) {
+        _selectedRow = indexPath.row;
+        
+        NSString *title = [[_dataSource objectAtIndex:indexPath.row] objectForKey:KMENU_TITLE];
+        if ([title isEqualToString:@"想做的事"]) {
+            XDAllPlansViewController *allPlansVC = [[XDAllPlansViewController alloc] init];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:allPlansVC];
+        }
+        else if([title isEqualToString:@"正在进行"])
+        {
+            
+        }
+        else if ([title isEqualToString:@"今日计划"])
+        {
+            XDTodayPlanViewController *todayPlanVC = [[XDTodayPlanViewController alloc] initWithStyle:UITableViewStylePlain];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:todayPlanVC];
+        }
+        else if ([title isEqualToString:@"设置"])
+        {
+            
+        }
+        
+        UINavigationController *navigation = (UINavigationController *)self.sidePanelController.centerPanel;
+        navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
 }
 
 @end

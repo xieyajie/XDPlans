@@ -12,8 +12,6 @@
 		3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B919E17D2FBBC0055EC4A /* XDAppDelegate.m */; };
 		3A3B91A617D2FDF80055EC4A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3B91A517D2FDF80055EC4A /* QuartzCore.framework */; };
 		3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91A917D308850055EC4A /* XDMenuViewController.m */; };
-		3A3B91BF17D30CC70055EC4A /* TopCharts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3B91B517D30CC70055EC4A /* TopCharts@2x.png */; };
-		3A3B91C017D30CC70055EC4A /* TopChartsSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3B91B617D30CC70055EC4A /* TopChartsSelected@2x.png */; };
 		3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */; };
 		3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */; };
 		3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56B61A17D4447200FF6400 /* UIColor+Category.m */; };
@@ -31,6 +29,19 @@
 		3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63D17D4834D00FF6400 /* menu_todayPlanSelected@2x.png */; };
 		3A56B64117D4834D00FF6400 /* menu_actionPlan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63E17D4834D00FF6400 /* menu_actionPlan@2x.png */; };
 		3A56B64217D4834D00FF6400 /* menu_actionPlanSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63F17D4834D00FF6400 /* menu_actionPlanSelected@2x.png */; };
+		3A8FA85917D56F940077BAFE /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */; };
+		3A8FA86517D576F60077BAFE /* MY_ICON_001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85B17D576F60077BAFE /* MY_ICON_001@2x.png */; };
+		3A8FA86617D576F60077BAFE /* MY_ICON_002.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85C17D576F60077BAFE /* MY_ICON_002.png */; };
+		3A8FA86717D576F60077BAFE /* MY_ICON_003.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85D17D576F60077BAFE /* MY_ICON_003.png */; };
+		3A8FA86817D576F60077BAFE /* MY_ICON_004.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85E17D576F60077BAFE /* MY_ICON_004.png */; };
+		3A8FA86917D576F60077BAFE /* MY_ICON_005.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85F17D576F60077BAFE /* MY_ICON_005.png */; };
+		3A8FA86A17D576F60077BAFE /* MY_ICON_006.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86017D576F60077BAFE /* MY_ICON_006.png */; };
+		3A8FA86B17D576F60077BAFE /* MY_ICON_007.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86117D576F60077BAFE /* MY_ICON_007.png */; };
+		3A8FA86C17D576F60077BAFE /* MY_ICON_008.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86217D576F60077BAFE /* MY_ICON_008.png */; };
+		3A8FA86D17D576F60077BAFE /* MY_ICON_009.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86317D576F60077BAFE /* MY_ICON_009.png */; };
+		3A8FA86E17D576F60077BAFE /* MY_ICON_010.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86417D576F60077BAFE /* MY_ICON_010.png */; };
+		3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */; };
+		3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */; };
 		3AE2C9CF17D4C7A60020C93F /* 中雨.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BC17D4C7A60020C93F /* 中雨.png */; };
 		3AE2C9D017D4C7A60020C93F /* 中雨转晴.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BD17D4C7A60020C93F /* 中雨转晴.png */; };
 		3AE2C9D117D4C7A60020C93F /* 中雪.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE2C9BE17D4C7A60020C93F /* 中雪.png */; };
@@ -71,8 +82,6 @@
 		3A3B91A517D2FDF80055EC4A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A3B91A817D308850055EC4A /* XDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMenuViewController.h; sourceTree = "<group>"; };
 		3A3B91A917D308850055EC4A /* XDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMenuViewController.m; sourceTree = "<group>"; };
-		3A3B91B517D30CC70055EC4A /* TopCharts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopCharts@2x.png"; sourceTree = "<group>"; };
-		3A3B91B617D30CC70055EC4A /* TopChartsSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TopChartsSelected@2x.png"; sourceTree = "<group>"; };
 		3A3B91C117D310CA0055EC4A /* XDTodayPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanViewController.h; sourceTree = "<group>"; };
 		3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanViewController.m; sourceTree = "<group>"; };
 		3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
@@ -95,6 +104,21 @@
 		3A56B63D17D4834D00FF6400 /* menu_todayPlanSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_todayPlanSelected@2x.png"; sourceTree = "<group>"; };
 		3A56B63E17D4834D00FF6400 /* menu_actionPlan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlan@2x.png"; sourceTree = "<group>"; };
 		3A56B63F17D4834D00FF6400 /* menu_actionPlanSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlanSelected@2x.png"; sourceTree = "<group>"; };
+		3A8FA85717D56F940077BAFE /* XDTodayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanCell.h; sourceTree = "<group>"; };
+		3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
+		3A8FA85B17D576F60077BAFE /* MY_ICON_001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_001@2x.png"; sourceTree = "<group>"; };
+		3A8FA85C17D576F60077BAFE /* MY_ICON_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_002.png; sourceTree = "<group>"; };
+		3A8FA85D17D576F60077BAFE /* MY_ICON_003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_003.png; sourceTree = "<group>"; };
+		3A8FA85E17D576F60077BAFE /* MY_ICON_004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_004.png; sourceTree = "<group>"; };
+		3A8FA85F17D576F60077BAFE /* MY_ICON_005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_005.png; sourceTree = "<group>"; };
+		3A8FA86017D576F60077BAFE /* MY_ICON_006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_006.png; sourceTree = "<group>"; };
+		3A8FA86117D576F60077BAFE /* MY_ICON_007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_007.png; sourceTree = "<group>"; };
+		3A8FA86217D576F60077BAFE /* MY_ICON_008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_008.png; sourceTree = "<group>"; };
+		3A8FA86317D576F60077BAFE /* MY_ICON_009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_009.png; sourceTree = "<group>"; };
+		3A8FA86417D576F60077BAFE /* MY_ICON_010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY_ICON_010.png; sourceTree = "<group>"; };
+		3A8FA87117D5A8810077BAFE /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
+		3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
+		3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_unaction@2x.png"; sourceTree = "<group>"; };
 		3AE2C9BC17D4C7A60020C93F /* 中雨.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨.png"; sourceTree = "<group>"; };
 		3AE2C9BD17D4C7A60020C93F /* 中雨转晴.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雨转晴.png"; sourceTree = "<group>"; };
 		3AE2C9BE17D4C7A60020C93F /* 中雪.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中雪.png"; sourceTree = "<group>"; };
@@ -200,6 +224,10 @@
 				3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */,
 				3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */,
 				3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */,
+				3A8FA85717D56F940077BAFE /* XDTodayPlanCell.h */,
+				3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */,
+				3A8FA87117D5A8810077BAFE /* XDAllPlansCell.h */,
+				3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -225,9 +253,9 @@
 		3A3B91AB17D30CC70055EC4A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A8FA87417D5B5680077BAFE /* plans */,
+				3A8FA85A17D576F60077BAFE /* mood */,
 				3A56B62817D4758200FF6400 /* Menu */,
-				3A3B91B517D30CC70055EC4A /* TopCharts@2x.png */,
-				3A3B91B617D30CC70055EC4A /* TopChartsSelected@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -268,6 +296,31 @@
 				3A56B62F17D4758200FF6400 /* userLogout@2x.png */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		3A8FA85A17D576F60077BAFE /* mood */ = {
+			isa = PBXGroup;
+			children = (
+				3A8FA85B17D576F60077BAFE /* MY_ICON_001@2x.png */,
+				3A8FA85C17D576F60077BAFE /* MY_ICON_002.png */,
+				3A8FA85D17D576F60077BAFE /* MY_ICON_003.png */,
+				3A8FA85E17D576F60077BAFE /* MY_ICON_004.png */,
+				3A8FA85F17D576F60077BAFE /* MY_ICON_005.png */,
+				3A8FA86017D576F60077BAFE /* MY_ICON_006.png */,
+				3A8FA86117D576F60077BAFE /* MY_ICON_007.png */,
+				3A8FA86217D576F60077BAFE /* MY_ICON_008.png */,
+				3A8FA86317D576F60077BAFE /* MY_ICON_009.png */,
+				3A8FA86417D576F60077BAFE /* MY_ICON_010.png */,
+			);
+			path = mood;
+			sourceTree = "<group>";
+		};
+		3A8FA87417D5B5680077BAFE /* plans */ = {
+			isa = PBXGroup;
+			children = (
+				3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */,
+			);
+			path = plans;
 			sourceTree = "<group>";
 		};
 		3AE2C9BA17D4C7A60020C93F /* Weather */ = {
@@ -412,33 +465,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A56B64217D4834D00FF6400 /* menu_actionPlanSelected@2x.png in Resources */,
+				3A8FA86617D576F60077BAFE /* MY_ICON_002.png in Resources */,
 				3A56B63117D4758200FF6400 /* menu_todayPlan@2x.png in Resources */,
 				3AFBF61E17D21B2700CA9A56 /* InfoPlist.strings in Resources */,
 				3A56B63517D4758200FF6400 /* menu_userLogin@2x.png in Resources */,
+				3A8FA86717D576F60077BAFE /* MY_ICON_003.png in Resources */,
 				3A56B64117D4834D00FF6400 /* menu_actionPlan@2x.png in Resources */,
+				3A8FA86C17D576F60077BAFE /* MY_ICON_008.png in Resources */,
 				3A56B63C17D47C2400FF6400 /* menu_settingSelected@2x.png in Resources */,
 				3A56B63017D4758200FF6400 /* menu_actionPlan2@2x.png in Resources */,
 				3AFBF62617D21B2700CA9A56 /* Default.png in Resources */,
 				3AFBF62817D21B2700CA9A56 /* Default@2x.png in Resources */,
 				3AFBF62A17D21B2700CA9A56 /* Default-568h@2x.png in Resources */,
 				3A56B63617D4758200FF6400 /* userLogout@2x.png in Resources */,
-				3A3B91BF17D30CC70055EC4A /* TopCharts@2x.png in Resources */,
 				3A56B63B17D47C2400FF6400 /* menu_allPlansSelected@2x.png in Resources */,
+				3A8FA86E17D576F60077BAFE /* MY_ICON_010.png in Resources */,
 				3A56B63417D4758200FF6400 /* menu_userLogin2@2x.png in Resources */,
-				3A3B91C017D30CC70055EC4A /* TopChartsSelected@2x.png in Resources */,
+				3A8FA86D17D576F60077BAFE /* MY_ICON_009.png in Resources */,
+				3A8FA86B17D576F60077BAFE /* MY_ICON_007.png in Resources */,
+				3A8FA86A17D576F60077BAFE /* MY_ICON_006.png in Resources */,
 				3A56B63317D4758200FF6400 /* menu_setting@2x.png in Resources */,
 				3A56B63817D4767A00FF6400 /* menu_actionPlanSelected2@2x.png in Resources */,
+				3A8FA86817D576F60077BAFE /* MY_ICON_004.png in Resources */,
 				3A56B63217D4758200FF6400 /* menu_allPlans@2x.png in Resources */,
 				3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */,
+				3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */,
 				3AE2C9CF17D4C7A60020C93F /* 中雨.png in Resources */,
 				3AE2C9D017D4C7A60020C93F /* 中雨转晴.png in Resources */,
 				3AE2C9D117D4C7A60020C93F /* 中雪.png in Resources */,
 				3AE2C9D217D4C7A60020C93F /* 冰.png in Resources */,
 				3AE2C9D317D4C7A60020C93F /* 多云.png in Resources */,
 				3AE2C9D417D4C7A60020C93F /* 大雨.png in Resources */,
+				3A8FA86917D576F60077BAFE /* MY_ICON_005.png in Resources */,
 				3AE2C9D517D4C7A60020C93F /* 大雨转晴.png in Resources */,
 				3AE2C9D617D4C7A60020C93F /* 大雪.png in Resources */,
 				3AE2C9D717D4C7A60020C93F /* 天气预报.png in Resources */,
+				3A8FA86517D576F60077BAFE /* MY_ICON_001@2x.png in Resources */,
 				3AE2C9D817D4C7A60020C93F /* 天气预报@2x.gif in Resources */,
 				3AE2C9D917D4C7A60020C93F /* 小雪.png in Resources */,
 				3AE2C9DA17D4C7A60020C93F /* 晴.png in Resources */,
@@ -461,9 +523,11 @@
 			files = (
 				3AFBF62017D21B2700CA9A56 /* main.m in Sources */,
 				3A3B91A117D2FBBC0055EC4A /* JASidePanelController.m in Sources */,
+				3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */,
 				3A3B91A217D2FBBC0055EC4A /* UIViewController+JASidePanel.m in Sources */,
 				3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */,
 				3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */,
+				3A8FA85917D56F940077BAFE /* XDTodayPlanCell.m in Sources */,
 				3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */,
 				3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */,
 				3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */,

@@ -36,8 +36,6 @@ static XDWeatherManager *weatherManager = nil;
     NSError *error;
     NSString *stringFromFileAtURL = [[NSString alloc] initWithContentsOfURL:URL encoding:NSUTF8StringEncoding error:&error];
     
-    NSString *strTempL = @"";
-    NSString *strTempH = @"";
     NSString *strWeather = @"";
     NSString *fileName = @"晴.png";
     

@@ -24,6 +24,10 @@
 #define KLineBreakModeClip NSLineBreakByClipping
 #endif
 
+//Notification
+#define KNOTIFICATION_MOVE @"notification_move"
+
+
 //menu
 #define KSIDESLIP_PERCENT 0.5
 #define KSIDESLIP_CELL_HEIGHT 60.0
