@@ -21,7 +21,8 @@
 		3A4BD34E17D6CF89001F0D77 /* XDSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD34D17D6CF89001F0D77 /* XDSetting.plist */; };
 		3A4BD35317D6D905001F0D77 /* setting_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD35017D6D905001F0D77 /* setting_mark@2x.png */; };
 		3A4BD35417D6D905001F0D77 /* setting_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD35117D6D905001F0D77 /* setting_send@2x.png */; };
-		3A4BD35517D6D905001F0D77 /* setting_use@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD35217D6D905001F0D77 /* setting_use@2x.png */; };
+		3A4BD35717D70B2D001F0D77 /* setting_use@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD35617D70B2D001F0D77 /* setting_use@2x.png */; };
+		3A4BD35917D71C00001F0D77 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD35817D71C00001F0D77 /* Empty.xib */; };
 		3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56B61A17D4447200FF6400 /* UIColor+Category.m */; };
 		3A56B61F17D45FA600FF6400 /* XDMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56B61E17D45FA600FF6400 /* XDMenuCell.m */; };
 		3A56B63017D4758200FF6400 /* menu_actionPlan2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B62917D4758200FF6400 /* menu_actionPlan2@2x.png */; };
@@ -106,7 +107,8 @@
 		3A4BD34D17D6CF89001F0D77 /* XDSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDSetting.plist; sourceTree = "<group>"; };
 		3A4BD35017D6D905001F0D77 /* setting_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_mark@2x.png"; sourceTree = "<group>"; };
 		3A4BD35117D6D905001F0D77 /* setting_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_send@2x.png"; sourceTree = "<group>"; };
-		3A4BD35217D6D905001F0D77 /* setting_use@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_use@2x.png"; sourceTree = "<group>"; };
+		3A4BD35617D70B2D001F0D77 /* setting_use@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_use@2x.png"; sourceTree = "<group>"; };
+		3A4BD35817D71C00001F0D77 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		3A56B61917D4447200FF6400 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		3A56B61A17D4447200FF6400 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		3A56B61C17D445B700FF6400 /* XDPlanLocalDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPlanLocalDefault.h; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				3A4BD34A17D6CCB0001F0D77 /* XDSettingViewController.h */,
 				3A4BD34B17D6CCB0001F0D77 /* XDSettingViewController.m */,
 				3A4BD34D17D6CF89001F0D77 /* XDSetting.plist */,
+				3A4BD35817D71C00001F0D77 /* Empty.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -305,9 +308,9 @@
 		3A4BD34F17D6D905001F0D77 /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				3A4BD35617D70B2D001F0D77 /* setting_use@2x.png */,
 				3A4BD35017D6D905001F0D77 /* setting_mark@2x.png */,
 				3A4BD35117D6D905001F0D77 /* setting_send@2x.png */,
-				3A4BD35217D6D905001F0D77 /* setting_use@2x.png */,
 			);
 			path = setting;
 			sourceTree = "<group>";
@@ -552,12 +555,14 @@
 				3A56B63317D4758200FF6400 /* menu_setting@2x.png in Resources */,
 				3A56B63817D4767A00FF6400 /* menu_actionPlanSelected2@2x.png in Resources */,
 				3A8FA86817D576F60077BAFE /* MY_ICON_004.png in Resources */,
+				3A4BD35917D71C00001F0D77 /* Empty.xib in Resources */,
 				3A8FA88117D5E73A0077BAFE /* account_email@2x.png in Resources */,
 				3A56B63217D4758200FF6400 /* menu_allPlans@2x.png in Resources */,
 				3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */,
 				3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */,
 				3AE2C9CF17D4C7A60020C93F /* 中雨.png in Resources */,
 				3A4BD35317D6D905001F0D77 /* setting_mark@2x.png in Resources */,
+				3A4BD35717D70B2D001F0D77 /* setting_use@2x.png in Resources */,
 				3AE2C9D017D4C7A60020C93F /* 中雨转晴.png in Resources */,
 				3AE2C9D117D4C7A60020C93F /* 中雪.png in Resources */,
 				3AE2C9D217D4C7A60020C93F /* 冰.png in Resources */,
@@ -577,7 +582,6 @@
 				3AE2C9DC17D4C7A60020C93F /* 阴转晴.png in Resources */,
 				3AE2C9DD17D4C7A60020C93F /* 雨夹雪.png in Resources */,
 				3AE2C9DE17D4C7A60020C93F /* 雷阵雨.png in Resources */,
-				3A4BD35517D6D905001F0D77 /* setting_use@2x.png in Resources */,
 				3AE2C9DF17D4C7A60020C93F /* 雷雨.png in Resources */,
 				3A4BD34817D6CA47001F0D77 /* userLoginDefault@2x.png in Resources */,
 				3AE2C9E017D4C7A60020C93F /* 雾.png in Resources */,
@@ -633,7 +637,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -662,7 +666,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -680,7 +684,7 @@
 		3AFBF63417D21B2700CA9A56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";
@@ -692,7 +696,7 @@
 		3AFBF63517D21B2700CA9A56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tixa Internet(Beijing) Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XDPlans/XDPlans-Prefix.pch";
 				INFOPLIST_FILE = "XDPlans/XDPlans-Info.plist";

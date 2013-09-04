@@ -203,6 +203,9 @@
 
 - (void)tapHeaderView:(UITapGestureRecognizer *)tap
 {
+    [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0] animated:YES];
+    _selectedRow = -1;
+    
     XDAccountLoginViewController *accountVC = [[XDAccountLoginViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:accountVC];
     navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
