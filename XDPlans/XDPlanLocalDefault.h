@@ -28,6 +28,9 @@
 #define KNOTIFICATION_LOGIN @"notification_login"
 #define KNOTIFICATION_MOVE @"notification_move"
 
+//user header
+#define KUSER_HEADERIMAGE_WIDTH 80.0
+#define KUSER_HEADERIMAGE_HEIGHT 80.0
 
 //menu
 #define KSIDESLIP_PERCENT 0.5

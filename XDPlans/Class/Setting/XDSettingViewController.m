@@ -8,6 +8,8 @@
 
 #import "XDSettingViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #define KSETTING_SECTION_TITLE @"headerTitle"
 #define KSETTING_SECTION_SOURCE @"source"
 #define KSETTING_CELL_TITLE @"title"
@@ -40,6 +42,7 @@
                 _marginWidth = 10;
             }
         }
+        
         [self configationData];
     }
     return self;

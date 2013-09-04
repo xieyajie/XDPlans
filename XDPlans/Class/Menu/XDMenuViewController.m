@@ -84,10 +84,10 @@
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 150)];
         _headerView.backgroundColor = [UIColor clearColor];
         
-        _headerButton = [[UIButton alloc] initWithFrame:CGRectMake((_headerView.frame.size.width * KSIDESLIP_PERCENT - 80) / 2, 20, 80, 80)];
+        _headerButton = [[UIButton alloc] initWithFrame:CGRectMake((_headerView.frame.size.width * KSIDESLIP_PERCENT - KUSER_HEADERIMAGE_WIDTH) / 2, 20, KUSER_HEADERIMAGE_WIDTH, KUSER_HEADERIMAGE_HEIGHT)];
         [_headerButton addTarget:self action:@selector(tapHeaderView:) forControlEvents:UIControlEventTouchUpInside];
         [_headerButton setImage:[UIImage imageNamed:@"userLogoutDefault.png"] forState:UIControlStateNormal];
-        _headerButton.layer.cornerRadius = 80 / 2;
+        _headerButton.layer.cornerRadius = KUSER_HEADERIMAGE_WIDTH / 2;
         _headerButton.layer.masksToBounds = YES;
         _headerButton.layer.borderWidth = 2.0f;
         _headerButton.layer.borderColor = [[UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0] CGColor];

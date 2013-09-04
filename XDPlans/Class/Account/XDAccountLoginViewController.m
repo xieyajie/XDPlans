@@ -10,8 +10,10 @@
 #define KACCOUNT_TAG_EMAIL 99
 #define KACCOUNT_TAG_PASSWORD 98
 
+#import <QuartzCore/QuartzCore.h>
 #import "XDAccountLoginViewController.h"
 
+#import "XDCutImageViewController.h"
 #import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
 
@@ -54,9 +56,9 @@
     
     //tableHeaderView
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 100)];
-    _headerButton = [[UIButton alloc] initWithFrame:CGRectMake((headerView.frame.size.width - 80) / 2, (headerView.frame.size.height - 80) / 2, 80.0, 80.0)];
+    _headerButton = [[UIButton alloc] initWithFrame:CGRectMake((headerView.frame.size.width - KUSER_HEADERIMAGE_WIDTH) / 2, (headerView.frame.size.height - KUSER_HEADERIMAGE_HEIGHT) / 2, KUSER_HEADERIMAGE_WIDTH, KUSER_HEADERIMAGE_HEIGHT)];
     [_headerButton setImage:[UIImage imageNamed:@"userLogoutDefault.png"] forState:UIControlStateNormal];
-    _headerButton.layer.cornerRadius = 80 / 2;
+    _headerButton.layer.cornerRadius = KUSER_HEADERIMAGE_WIDTH / 2;
     _headerButton.layer.masksToBounds = YES;
     _headerButton.layer.borderWidth = 2.0f;
     _headerButton.layer.borderColor = [[UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0] CGColor];
@@ -202,9 +204,16 @@
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary && _headerImage != nil)
     {
         [self.imagePicker dismissViewControllerAnimated:YES completion:^{
-            [_headerButton setImage:_headerImage forState:UIControlStateNormal];
+            if (_headerImage.size.width > KUSER_HEADERIMAGE_WIDTH || _headerImage.size.height > KUSER_HEADERIMAGE_HEIGHT) {
+                XDCutImageViewController *cutVC = [[XDCutImageViewController alloc] initWithImage:_headerImage];
+                [self.navigationController presentViewController:cutVC animated:YES completion:^{
+                    
+                }];
+            }
+            else{
+                [_headerButton setImage:_headerImage forState:UIControlStateNormal];
+            }
         }];
-        
     }
 }
 
@@ -213,7 +222,7 @@
 
 - (void)chooseHeaderImage:(id)sender
 {
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    [self.navigationController presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 - (void)registerAction:(id)sender

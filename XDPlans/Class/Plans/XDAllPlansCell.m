@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "XDAllPlansCell.h"
 
 #import "XDPlanLocalDefault.h"
