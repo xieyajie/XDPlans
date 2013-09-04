@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>0</key>
+	<dict>
+		<key>headerTitle</key>
+		<string>提醒时间</string>
+		<key>source</key>
+		<dict>
+			<key>0</key>
+			<dict>
+				<key>title</key>
+				<string>开始记录</string>
+			</dict>
+			<key>1</key>
+			<dict>
+				<key>title</key>
+				<string>今日总结</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>1</key>
+	<dict>
+		<key>headerTitle</key>
+		<string>使用习惯</string>
+		<key>source</key>
+		<dict>
+			<key>0</key>
+			<dict>
+				<key>title</key>
+				<string>惯用手</string>
+			</dict>
+			<key>1</key>
+			<dict>
+				<key>title</key>
+				<string>自动推送更新消息</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>headerTitle</key>
+		<string>关于 XDPlans</string>
+		<key>source</key>
+		<dict>
+			<key>0</key>
+			<dict>
+				<key>title</key>
+				<string>XDPlans 使用说明</string>
+				<key>selector</key>
+				<string>howUseXDPlans</string>
+			</dict>
+			<key>1</key>
+			<dict>
+				<key>title</key>
+				<string>向 XDStudio 发送bugs</string>
+				<key>selector</key>
+				<string>sendBugsToXDStudio</string>
+			</dict>
+			<key>2</key>
+			<dict>
+				<key>title</key>
+				<string>去给 XDPlans 评分</string>
+				<key>selector</key>
+				<string>markForXDPlans</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

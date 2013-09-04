@@ -13,6 +13,7 @@
 #import "XDAccountLoginViewController.h"
 #import "XDTodayPlanViewController.h"
 #import "XDAllPlansViewController.h"
+#import "XDSettingViewController.h"
 #import "XDMenuCell.h"
 
 #import "XDPlanLocalDefault.h"
@@ -189,7 +190,8 @@
         }
         else if ([title isEqualToString:@"设置"])
         {
-            
+            XDSettingViewController *settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:settingVC];
         }
         
         UINavigationController *navigation = (UINavigationController *)self.sidePanelController.centerPanel;
