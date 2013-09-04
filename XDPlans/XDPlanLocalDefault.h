@@ -25,6 +25,7 @@
 #endif
 
 //Notification
+#define KNOTIFICATION_LOGIN @"notification_login"
 #define KNOTIFICATION_MOVE @"notification_move"
 
 

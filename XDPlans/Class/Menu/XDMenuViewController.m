@@ -25,6 +25,8 @@
 {
     NSMutableArray *_dataSource;
     UIView *_headerView;
+    UIButton *_headerButton;
+    UILabel *_nameLabel;
     
     NSInteger _selectedRow;
 }
@@ -62,8 +64,9 @@
     [self.tableView setTableHeaderView:self.headerView];
     [self.tableView setTableFooterView:[[UIView alloc] init]];
     self.tableView.backgroundColor = [UIColor colorWithRed:99 / 255.0 green:102 / 255.0 blue:110 / 255.0 alpha:1.0];
-//    self.tableView.separatorColor = [UIColor lightGrayColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucceed:) name:KNOTIFICATION_LOGIN object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,27 +83,41 @@
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 150)];
         _headerView.backgroundColor = [UIColor clearColor];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((_headerView.frame.size.width * KSIDESLIP_PERCENT - 80) / 2, 20, 80, 80)];
-        imgView.contentMode = UIViewContentModeCenter | UIViewContentModeScaleToFill;
-        imgView.image = [UIImage imageNamed:@"userLogout.png"];
-        imgView.layer.cornerRadius = 80 / 2;
-        imgView.layer.masksToBounds = YES;
-        imgView.layer.borderWidth = 2.0f;
-        imgView.layer.borderColor = [[UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0] CGColor];
-        [_headerView addSubview:imgView];
+        _headerButton = [[UIButton alloc] initWithFrame:CGRectMake((_headerView.frame.size.width * KSIDESLIP_PERCENT - 80) / 2, 20, 80, 80)];
+        [_headerButton addTarget:self action:@selector(tapHeaderView:) forControlEvents:UIControlEventTouchUpInside];
+        [_headerButton setImage:[UIImage imageNamed:@"userLogoutDefault.png"] forState:UIControlStateNormal];
+        _headerButton.layer.cornerRadius = 80 / 2;
+        _headerButton.layer.masksToBounds = YES;
+        _headerButton.layer.borderWidth = 2.0f;
+        _headerButton.layer.borderColor = [[UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0] CGColor];
+        [_headerView addSubview:_headerButton];
         
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, imgView.frame.origin.y + 80 + 15, _headerView.frame.size.width * KSIDESLIP_PERCENT - 10, 20)];
-        nameLabel.textAlignment = KTextAlignmentCenter;
-        nameLabel.backgroundColor = [UIColor clearColor];
-        nameLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0];
-        nameLabel.text = @"未登录";
-        [_headerView addSubview:nameLabel];
+        _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, _headerButton.frame.origin.y + 80 + 15, _headerView.frame.size.width * KSIDESLIP_PERCENT - 10, 20)];
+        _nameLabel.textAlignment = KTextAlignmentCenter;
+        _nameLabel.backgroundColor = [UIColor clearColor];
+        _nameLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:142 / 255.0 blue:147 / 255.0 alpha:1.0];
+        _nameLabel.text = @"未登录";
+        [_headerView addSubview:_nameLabel];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeaderView:)];
         [_headerView addGestureRecognizer:tap];
     }
     
     return _headerView;
+}
+
+#pragma mark - notification
+
+- (void)loginSucceed:(NSNotification *)notification
+{
+    id object = notification.object;
+    if ([object isKindOfClass:[UIImage class]]) {
+        UIImage *image = (UIImage *)object;
+        if (image == nil) {
+            image = [UIImage imageNamed:@"userLoginDefault.png"];
+        }
+        [_headerButton setImage:image forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Table view data source
