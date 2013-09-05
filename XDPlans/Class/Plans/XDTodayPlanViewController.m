@@ -31,15 +31,22 @@
 @interface XDTodayPlanViewController ()
 {
     NSMutableArray *_dataSource;
+    
+    UITextField *_moodText;
+    UITextView *_summaryText;
 }
 
 @property (nonatomic, strong) UIView *headerView;
+
+@property (nonatomic, strong) UIBarButtonItem *hideKeyboardItem;
 
 @end
 
 @implementation XDTodayPlanViewController
 
 @synthesize headerView = _headerView;
+
+@synthesize hideKeyboardItem = _hideKeyboardItem;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -65,8 +72,12 @@
     self.title = @"今日计划";
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
     
+    self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,20 +115,7 @@
         dayLabel.text = @"29";
         [dateView addSubview:dayLabel];
         
-//        //moodButton
-//        UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        moodButton.frame = CGRectMake(self.tableView.frame.size.width - 70, 20, 70, 60);
-//        moodButton.backgroundColor = [UIColor whiteColor];
-//        [_headerView addSubview:moodButton];
-//        
-//        moodButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-//        moodButton.titleLabel.textAlignment = KTextAlignmentCenter;
-//        [moodButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [moodButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-//        [moodButton setTitle:@"选个心情呗" forState:UIControlStateNormal];
-//        [moodButton setTitleEdgeInsets:UIEdgeInsetsMake(moodButton.frame.size.height - 20, 0, 0, 0)];
-        
-        //weatherButton
+        //weatherView
         UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
                                                                        .frame.size.width, 20, self.tableView.frame.size.width - dateView.frame.size.width , 60)];
         weatherView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
@@ -145,23 +143,50 @@
     return _headerView;
 }
 
+- (UIBarButtonItem *)hideKeyboardItem
+{
+    if (_hideKeyboardItem == nil) {
+        _hideKeyboardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plans_hideKeyboard.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(hideKeyboardAction:)];
+    }
+    
+    return _hideKeyboardItem;
+}
+
+#pragma mark - notification keyboard
+
+- (void)showKeyboard:(NSNotification *)notification
+{
+    [self.navigationController.navigationItem setRightBarButtonItem:self.hideKeyboardItem animated:YES];
+}
+
+- (void)hideKeyboard:(NSNotification *)notification
+{
+    [self.navigationController.navigationItem setRightBarButtonItem:nil animated:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [_dataSource count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_dataSource count];
+    return 1;
 }
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    NSDictionary *dic = [_dataSource objectAtIndex:section];
+//    return [dic objectForKey:KTODAY_DATA_TITLE];
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *dic = [_dataSource objectAtIndex:indexPath.row];
+    NSDictionary *dic = [_dataSource objectAtIndex:indexPath.section];
     NSString *CellIdentifier = [dic objectForKey:KTODAY_CELL_IDENTIFIER];
     XDTodayPlanCell *cell = (XDTodayPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -171,9 +196,10 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        switch (indexPath.row) {
+        switch (indexPath.section) {
             case KSECTION_MOOD:
                 [cell configurationMood];
+                _moodText = cell.textField;
                 break;
             case KSECTION_WORKLOAD:
                 [cell configurationWordload];
@@ -186,6 +212,7 @@
                 break;
             case KSECTION_SUMMARY:
                 [cell configurationSummary];
+                _summaryText = cell.textView;
                 break;
             case KSECTION_GRADE:
                 [cell configurationGrand];
@@ -196,17 +223,44 @@
         }
     }
     
-    cell.title = [dic objectForKey:KTODAY_DATA_TITLE];
-    cell.titleColor = [dic objectForKey:KTODAY_CELL_COLOR];
-    
     return cell;
 }
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 25.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSDictionary *dic = [_dataSource objectAtIndex:section];
+    UIColor *color = [dic objectForKey:KTODAY_CELL_COLOR];
+    if (color == nil || ![color isKindOfClass:[UIColor class]]) {
+        color = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 25.0)];
+    view.backgroundColor = color;
+    view.layer.shadowOffset = CGSizeMake(1, 1);
+    view.layer.shadowRadius = 2.0;
+    view.layer.shadowOpacity = 1.0;
+    view.layer.shadowColor = [[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0] CGColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.frame.size.width - 20, view.frame.size.height)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+    label.font = [UIFont boldSystemFontOfSize:15.0];
+    label.text = [dic objectForKey:KTODAY_DATA_TITLE];
+    [view addSubview:label];
+    
+    return view;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger type = [[[_dataSource objectAtIndex:indexPath.row] objectForKey:KTODAY_CELL_LAYOUTTYPE] integerValue];
+    NSInteger type = [[[_dataSource objectAtIndex:indexPath.section] objectForKey:KTODAY_CELL_LAYOUTTYPE] integerValue];
     if (type == 0) {
         return KTODAY_CELL_HEIGHT_NORMAL;
     }
@@ -216,6 +270,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+}
+
+#pragma mark - item action
+
+- (void)hideKeyboardAction:(id)sender
+{
+    [_moodText resignFirstResponder];
+    [_summaryText resignFirstResponder];
 }
 
 @end

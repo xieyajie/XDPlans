@@ -32,7 +32,8 @@
         [self.contentView addSubview:_indexLabel];
         
         _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 5, 320 - 90, 40)];
-        _contentLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+//        _contentLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+        _contentLabel.backgroundColor = [UIColor clearColor];
         _contentLabel.textColor = [UIColor colorWithRed:237 / 255.0 green:231 / 255.0 blue:231 / 255.0 alpha:1.0];
         [self.contentView addSubview:_contentLabel];
         
@@ -71,6 +72,7 @@
         _indexLabel.textColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         
         [_actionButton setImage:[UIImage imageNamed:@"menu_actionPlan.png"] forState:UIControlStateNormal];
+        [_actionButton setTintColor:[UIColor redColor]];
     }
     else{
         _indexLabel.layer.borderColor = [[UIColor whiteColor] CGColor];

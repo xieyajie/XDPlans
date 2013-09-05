@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XDTodayPlanCell : UITableViewCell
-{
-    UILabel *_titleLabel;
-}
+#import "RichTextEditor.h"
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) UIColor *titleColor;
+@interface XDTodayPlanCell : UITableViewCell
+
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) UITextView *textView;
 
 //心情
 - (void)configurationMood;

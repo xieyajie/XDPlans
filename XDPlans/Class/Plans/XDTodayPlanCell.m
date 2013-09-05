@@ -10,22 +10,28 @@
 
 #import "XDPlanLocalDefault.h"
 
+@interface XDTodayPlanCell()
+
+@property (nonatomic, strong) UITextField *moodField;
+@property (nonatomic, strong) RichTextEditor *textEditor;
+
+@end
+
 @implementation XDTodayPlanCell
 
-@synthesize title = _title;
-@synthesize titleColor = _titleColor;
+@synthesize moodField = _moodField;
+@synthesize textEditor = _textEditor;
+
+//public
+@synthesize textField = _textField;
+@synthesize textView = _textView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        UIFont *font = [UIFont systemFontOfSize:16.0];
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = font;
-        _titleLabel.textColor = [UIColor colorWithRed:224 / 255.0 green:222 / 255.0 blue:214 / 255.0 alpha:1.0];
-        _titleLabel.textAlignment = KTextAlignmentCenter;
-        [self.contentView addSubview:_titleLabel];
+
     }
     return self;
 }
@@ -39,39 +45,45 @@
 
 #pragma mark - set
 
-- (void)setTitle:(NSString *)str
+#pragma mark - get
+
+- (RichTextEditor *)textEditor
 {
-    _title = str;
+    if (_textEditor == nil) {
+        _textEditor = [[RichTextEditor alloc] init];
+        _textEditor.backgroundColor = [UIColor clearColor];
+    }
     
-    UIFont *font = [UIFont systemFontOfSize:16.0];
-    CGSize size = [_title sizeWithFont:font constrainedToSize:CGSizeMake(320, 20)];
-    _titleLabel.frame = CGRectMake(320 - (size.width + 40), 0, size.width + 20, 20);
-    _titleLabel.text = _title;
+    return _textEditor;
 }
 
-- (void)setTitleColor:(UIColor *)color
+- (UITextField *)textField
 {
-    _titleLabel.backgroundColor = color;
+    return _moodField;
 }
 
+- (UITextView *)textView
+{
+    return _textEditor;
+}
 
 #pragma mark - public
 
 - (void)configurationMood
 {
     UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    moodButton.frame = CGRectMake(20, 20, 40, KTODAY_CELL_HEIGHT_NORMAL - 20);
+    moodButton.frame = CGRectMake(10, 10, 40, KTODAY_CELL_HEIGHT_NORMAL - 20);
     [moodButton setImage:[UIImage imageNamed:@"MY_ICON_001.png"] forState:UIControlStateNormal];
     moodButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     moodButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
     moodButton.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:moodButton];
     
-    UITextField *moodField = [[UITextField alloc] initWithFrame:CGRectMake(moodButton.frame.origin.x + moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37 - 20) / 2 + 20, self.frame.size.width - (moodButton.frame.origin.x + moodButton.frame.size.width + 30), 37)];
-    moodField.borderStyle = UITextBorderStyleBezel;
-    moodField.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
-    moodField.placeholder = @"心情怎么样？";
-    [self.contentView addSubview:moodField];
+    _moodField = [[UITextField alloc] initWithFrame:CGRectMake(moodButton.frame.origin.x + moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37 - 20) / 2, self.frame.size.width - (moodButton.frame.origin.x + moodButton.frame.size.width + 30), 37)];
+    _moodField.borderStyle = UITextBorderStyleBezel;
+    _moodField.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
+    _moodField.placeholder = @"心情怎么样？";
+    [self.contentView addSubview:_moodField];
 }
 
 //工作量指数
@@ -95,7 +107,8 @@
 //今日总结
 - (void)configurationSummary
 {
-    
+    self.textEditor.frame = CGRectMake(10, 10, self.frame.size.width - 20, KTODAY_CELL_HEIGHT_CONTENT - 20);
+    [self.contentView addSubview:self.textEditor];
 }
 
 //评价表现
