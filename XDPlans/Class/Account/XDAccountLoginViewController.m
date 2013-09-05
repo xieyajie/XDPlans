@@ -105,6 +105,8 @@
     [self.tableView setTableFooterView:footView];
     
     [self initTextField];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cutImageFinish:) name:KNOTIFICATION_CUTFINISH object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,16 +206,27 @@
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary && _headerImage != nil)
     {
         [self.imagePicker dismissViewControllerAnimated:YES completion:^{
-            if (_headerImage.size.width > KUSER_HEADERIMAGE_WIDTH || _headerImage.size.height > KUSER_HEADERIMAGE_HEIGHT) {
+            if (_headerImage.size.width > KUSER_HEADERIMAGE_WIDTH * 2 || _headerImage.size.height > KUSER_HEADERIMAGE_HEIGHT * 2)
+            {
                 XDCutImageViewController *cutVC = [[XDCutImageViewController alloc] initWithImage:_headerImage];
                 [self.navigationController presentViewController:cutVC animated:YES completion:^{
-                    
                 }];
             }
             else{
                 [_headerButton setImage:_headerImage forState:UIControlStateNormal];
             }
         }];
+    }
+}
+
+#pragma mark - notification
+
+- (void)cutImageFinish:(NSNotification *)notification
+{
+    id object = notification.object;
+    if (object != nil && [object isKindOfClass:[UIImage class]]) {
+        _headerImage = (UIImage *)object;
+        [_headerButton setImage:_headerImage forState:UIControlStateNormal];
     }
 }
 
