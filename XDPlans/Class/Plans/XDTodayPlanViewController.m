@@ -340,12 +340,6 @@
     NSInteger section = [XDManagerHelper tagDecompileWithInteger:button.tag];
     XDTodayPlanCell *cell = (XDTodayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     cell.userInteractionEnabled = selected;
-//    for (UIView *view in [cell.contentView subviews]) {
-//        if ([view isKindOfClass:[UIButton class]]) {
-//            UIButton *button = (UIButton *)view;
-//            button.enabled = selected;
-//        }
-//    }
 }
 
 @end
