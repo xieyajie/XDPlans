@@ -71,7 +71,7 @@
         _indexLabel.backgroundColor = [UIColor whiteColor];
         _indexLabel.textColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         
-        [_actionButton setImage:[UIImage imageNamed:@"menu_actionPlan.png"] forState:UIControlStateNormal];
+        [_actionButton setImage:[UIImage imageNamed:@"plans_action.png"] forState:UIControlStateNormal];
         [_actionButton setTintColor:[UIColor redColor]];
     }
     else{

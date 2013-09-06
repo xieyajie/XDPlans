@@ -9,9 +9,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "XDTodayPlanViewController.h"
 
+#import "XDColorViewController.h"
 #import "XDTodayPlanCell.h"
-#import "XDWeatherManager.h"
 
+#import "XDManagerHelper.h"
+#import "XDWeatherManager.h"
 #import "XDPlanLocalDefault.h"
 
 #define KTODAY_DATA_TITLE @"title"
@@ -28,13 +30,15 @@
 #define KSECTION_SUMMARY 4
 #define KSECTION_GRADE 5
 
-@interface XDTodayPlanViewController ()
+@interface XDTodayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate>
 {
     NSMutableArray *_dataSource;
     
     UITextField *_moodText;
     UITextView *_summaryText;
 }
+
+@property (nonatomic, strong) NSMutableArray *sectionHeaderViews;
 
 @property (nonatomic, strong) UIView *headerView;
 
@@ -43,6 +47,8 @@
 @end
 
 @implementation XDTodayPlanViewController
+
+@synthesize sectionHeaderViews = _sectionHeaderViews;
 
 @synthesize headerView = _headerView;
 
@@ -152,16 +158,56 @@
     return _hideKeyboardItem;
 }
 
+- (NSMutableArray *)sectionHeaderViews
+{
+    if (_sectionHeaderViews == nil) {
+        _sectionHeaderViews = [[NSMutableArray alloc] init];
+        
+        for (int i= 0; i < [_dataSource count]; i++) {
+            NSDictionary *dic = [_dataSource objectAtIndex:i];
+            UIColor *color = [dic objectForKey:KTODAY_CELL_COLOR];
+            if (color == nil || ![color isKindOfClass:[UIColor class]]) {
+                color = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+            }
+            
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 25.0)];
+            view.backgroundColor = color;
+            view.layer.shadowOffset = CGSizeMake(1, 1);
+            view.layer.shadowRadius = 2.0;
+            view.layer.shadowOpacity = 1.0;
+            view.layer.shadowColor = [[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0] CGColor];
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.frame.size.width - 20 - 30, view.frame.size.height)];
+            label.backgroundColor = [UIColor clearColor];
+            label.textColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+            label.font = [UIFont boldSystemFontOfSize:15.0];
+            label.text = [dic objectForKey:KTODAY_DATA_TITLE];
+            [view addSubview:label];
+            
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(view.frame.size.width - 40, 0, 30, view.frame.size.height)];
+            button.tag = [XDManagerHelper tagCompileWithInteger:i];
+            [button setImage:[UIImage imageNamed:@"plans_enabled_yes.png"] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"plans_enabled_no.png"] forState:UIControlStateSelected];
+            [button addTarget:self action:@selector(sectionEnabledAction:) forControlEvents:UIControlEventTouchUpInside];
+            [view addSubview:button];
+            
+            [_sectionHeaderViews addObject:view];
+        }
+    }
+    
+    return _sectionHeaderViews;
+}
+
 #pragma mark - notification keyboard
 
 - (void)showKeyboard:(NSNotification *)notification
 {
-    [self.navigationController.navigationItem setRightBarButtonItem:self.hideKeyboardItem animated:YES];
+    [self.navigationItem setRightBarButtonItem:self.hideKeyboardItem animated:YES];
 }
 
 - (void)hideKeyboard:(NSNotification *)notification
 {
-    [self.navigationController.navigationItem setRightBarButtonItem:nil animated:YES];
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -203,9 +249,11 @@
                 break;
             case KSECTION_WORKLOAD:
                 [cell configurationWordload];
+                cell.delegate = self;
                 break;
             case KSECTION_FINISHFAITH:
                 [cell configurationFinishFaith];
+                cell.delegate = self;
                 break;
             case KSECTION_PLAN:
                 [cell configurationPlan];
@@ -223,6 +271,8 @@
         }
     }
     
+//    cell.userInteractionEnabled = _enable;
+    
     return cell;
 }
 
@@ -235,27 +285,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSDictionary *dic = [_dataSource objectAtIndex:section];
-    UIColor *color = [dic objectForKey:KTODAY_CELL_COLOR];
-    if (color == nil || ![color isKindOfClass:[UIColor class]]) {
-        color = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
-    }
-
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 25.0)];
-    view.backgroundColor = color;
-    view.layer.shadowOffset = CGSizeMake(1, 1);
-    view.layer.shadowRadius = 2.0;
-    view.layer.shadowOpacity = 1.0;
-    view.layer.shadowColor = [[UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0] CGColor];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, view.frame.size.width - 20, view.frame.size.height)];
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-    label.font = [UIFont boldSystemFontOfSize:15.0];
-    label.text = [dic objectForKey:KTODAY_DATA_TITLE];
-    [view addSubview:label];
-    
-    return view;
+    return [self.sectionHeaderViews objectAtIndex:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -270,6 +300,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+}
+
+#pragma mark - XDTodayPlayCellDelegate
+
+- (void)planCellSelectedColorPicker:(XDTodayPlanCell *)planCell
+{
+    XDColorViewController *colorVC = [[XDColorViewController alloc] initWithStyle:UITableViewStylePlain];
+    colorVC.callerObject = planCell;
+    colorVC.delegate = self;
+    [self.navigationController pushViewController:colorVC animated:YES];
+}
+
+#pragma mark - XDColorViewControllerDelegate
+
+- (void)colorPickerSlectedColor:(UIColor *)color withCaller:(id)caller
+{
+    XDTodayPlanCell *planCell = (XDTodayPlanCell *)caller;
+    [planCell updateWithColor:color];
 }
 
 #pragma mark - item action
@@ -278,6 +327,22 @@
 {
     [_moodText resignFirstResponder];
     [_summaryText resignFirstResponder];
+}
+
+- (void)sectionEnabledAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    BOOL selected = button.selected;
+    button.selected = !selected;
+    NSInteger section = [XDManagerHelper tagDecompileWithInteger:button.tag];
+    XDTodayPlanCell *cell = (XDTodayPlanCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    cell.userInteractionEnabled = selected;
+//    for (UIView *view in [cell.contentView subviews]) {
+//        if ([view isKindOfClass:[UIButton class]]) {
+//            UIButton *button = (UIButton *)view;
+//            button.enabled = selected;
+//        }
+//    }
 }
 
 @end

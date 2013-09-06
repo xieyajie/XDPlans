@@ -8,16 +8,76 @@
 
 #import "XDTodayPlanCell.h"
 
+#import "XDManagerHelper.h"
 #import "XDPlanLocalDefault.h"
 
-@interface XDTodayPlanCell()
+@implementation XDSummaryView
+
+@synthesize delegate = _delegate;
+
+@synthesize faceButton = _faceButton;
+@synthesize faceTitleLabel = _faceTitleLabel;
+
+@synthesize index = _index;
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _faceButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 20)];
+        _faceButton.contentMode = UIViewContentModeScaleAspectFit;
+        _faceButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        [_faceButton addTarget:self action:@selector(faceAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_faceButton];
+        
+        _faceTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _faceButton.frame.origin.y + _faceButton.frame.size.height, self.frame.size.width, 20.0)];
+        _faceTitleLabel.backgroundColor = [UIColor clearColor];
+        _faceTitleLabel.textAlignment = KTextAlignmentCenter;
+        _faceTitleLabel.font = [UIFont systemFontOfSize:14.0];
+        [self addSubview:_faceTitleLabel];
+        
+        self.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
+    }
+    
+    return self;
+}
+
+- (void)faceAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(summaryView:didSelectedAtIndex:)]) {
+        [_delegate summaryView:self didSelectedAtIndex:_index];
+    }
+    else{
+        self.layer.borderColor = [[UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0] CGColor];
+        self.layer.borderWidth = 2.0;
+        
+        self.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+    }
+}
+
+@end
+
+@interface XDTodayPlanCell()<XDSummaryViewDelegate>
+{
+    UIColor *_color;
+}
 
 @property (nonatomic, strong) UITextField *moodField;
 @property (nonatomic, strong) RichTextEditor *textEditor;
 
+//指数相关
+@property (nonatomic, strong) NSMutableArray *buttons;
+
+//评价相关
+@property (nonatomic, strong) NSArray *summaryInfo;
+@property (nonatomic, strong) NSMutableArray *summaryViews;
+@property (nonatomic) NSInteger selectedSummaryIndex;
+
 @end
 
 @implementation XDTodayPlanCell
+
+@synthesize delegate = _delegate;
 
 @synthesize moodField = _moodField;
 @synthesize textEditor = _textEditor;
@@ -25,6 +85,14 @@
 //public
 @synthesize textField = _textField;
 @synthesize textView = _textView;
+
+//指数相关
+@synthesize buttons = _buttons;
+
+//评价相关
+@synthesize summaryInfo = _summaryInfo;
+@synthesize summaryViews = _summaryViews;
+@synthesize selectedSummaryIndex = _selectedSummaryIndex;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -67,54 +135,195 @@
     return _textEditor;
 }
 
+- (NSMutableArray *)buttons
+{
+    if (_buttons == nil) {
+        _buttons = [[NSMutableArray alloc] init];
+    }
+    
+    return _buttons;
+}
+
+#pragma mark - private
+
+- (void)colorAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(planCellSelectedColorPicker:)]) {
+        [_delegate planCellSelectedColorPicker:self];
+    }
+}
+
 #pragma mark - public
+
+- (void)updateWithColor:(UIColor *)color
+{
+    _color = [UIColor colorWithRed:0.42 green:0.4 blue:0.30 alpha:1.0];
+    for (UIButton *button in self.buttons) {
+        if (button.selected) {
+            UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
+            [button setImage:image forState: UIControlStateNormal];
+        }
+    }
+}
+
+#pragma mark - 心情
 
 - (void)configurationMood
 {
     UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
     moodButton.frame = CGRectMake(10, 10, 40, KTODAY_CELL_HEIGHT_NORMAL - 20);
-    [moodButton setImage:[UIImage imageNamed:@"MY_ICON_001.png"] forState:UIControlStateNormal];
+    [moodButton setImage:[UIImage imageNamed:@"plans_mood_image.png"] forState:UIControlStateNormal];
     moodButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    moodButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    moodButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     moodButton.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:moodButton];
     
-    _moodField = [[UITextField alloc] initWithFrame:CGRectMake(moodButton.frame.origin.x + moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37 - 20) / 2, self.frame.size.width - (moodButton.frame.origin.x + moodButton.frame.size.width + 30), 37)];
+    _moodField = [[UITextField alloc] initWithFrame:CGRectMake(moodButton.frame.origin.x + moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37) / 2, self.frame.size.width - (moodButton.frame.origin.x + moodButton.frame.size.width + 30), 37)];
     _moodField.borderStyle = UITextBorderStyleBezel;
     _moodField.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
     _moodField.placeholder = @"心情怎么样？";
     [self.contentView addSubview:_moodField];
 }
 
-//工作量指数
+#pragma mark - 工作量指数
+
 - (void)configurationWordload
 {
+    NSInteger count = 5;
+    CGFloat margin = 5.0;
+    CGFloat width = (self.frame.size.width - 80 - 5 * margin) / count;
     
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(margin + (margin + width) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+        button.contentMode = UIViewContentModeScaleAspectFit;
+        [button setImage:[UIImage imageNamed:@"plans_workload.png"] forState: UIControlStateNormal];
+        [button addTarget:self action:@selector(wordloadButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:button];
+        [self.buttons addObject:button];
+    }
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+    [button setTitle:@"颜色" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:button];
 }
 
-//完成信心指数
+- (void)wordloadButtonAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    BOOL selected = button.selected;
+    button.selected = !selected;
+    if (!selected) {
+        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
+        [button setImage:image forState: UIControlStateNormal];
+    }
+    else{
+        [button setImage:[UIImage imageNamed:@"plans_workload.png"] forState: UIControlStateNormal];
+    }
+}
+
+#pragma mark - 完成信心指数
+
 - (void)configurationFinishFaith
 {
+    NSInteger count = 5;
+    CGFloat margin = 5.0;
+    CGFloat width = (self.frame.size.width - 80 - 5 * margin) / count;
     
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(margin + (margin + width) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+        button.contentMode = UIViewContentModeScaleAspectFit;
+        [button setImage:[UIImage imageNamed:@"plans_finish.png"] forState: UIControlStateNormal];
+        [button addTarget:self action:@selector(finishButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:button];
+        [self.buttons addObject:button];
+    }
 }
 
-//今日安排
+- (void)finishButtonAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    BOOL selected = button.selected;
+    button.selected = !selected;
+    if (!selected) {
+        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_finish.png"] withColor:_color];
+        [button setImage:image forState: UIControlStateNormal];
+    }
+    else{
+        [button setImage:[UIImage imageNamed:@"plans_finish.png"] forState: UIControlStateNormal];
+    }
+}
+
+#pragma mark - 今日安排
+
 - (void)configurationPlan
 {
-    
+    self.textEditor.frame = CGRectMake(10, 10, self.frame.size.width - 20, KTODAY_CELL_HEIGHT_CONTENT - 20);
+    [self.contentView addSubview:self.textEditor];
 }
 
-//今日总结
+#pragma mark - 今日总结
+
 - (void)configurationSummary
 {
     self.textEditor.frame = CGRectMake(10, 10, self.frame.size.width - 20, KTODAY_CELL_HEIGHT_CONTENT - 20);
     [self.contentView addSubview:self.textEditor];
 }
 
-//评价表现
+#pragma mark - 评价表现
+
+//- (NSArray *)summaryInfo
+//{
+//    
+//}
+
+- (NSArray *)summaryViews
+{
+    if (_summaryViews == nil) {
+        _summaryViews = [[NSMutableArray alloc] init];
+        _selectedSummaryIndex = -1;
+    }
+    
+    return _summaryViews;
+}
+
 - (void)configurationGrand
 {
+    NSArray *titles = [NSArray arrayWithObjects:@"太糟糕了", @"一般般", @"还不错", @"非常好", nil];
+    NSInteger count = 4;
+    CGFloat margin = 5.0;
+    CGFloat width = (self.frame.size.width - 5 * margin) / count;
     
+    for (int i = 0; i < count; i++) {
+        XDSummaryView *summaryView = [[XDSummaryView alloc] initWithFrame:CGRectMake(margin + (width + margin) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+        summaryView.delegate = self;
+        summaryView.index = i;
+        NSString *imgName = [NSString stringWithFormat:@"plans_summary_%i", i];
+        [summaryView.faceButton setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+        summaryView.faceTitleLabel.text = [titles objectAtIndex:i];
+        
+        [self.summaryViews addObject:summaryView];
+        [self.contentView addSubview:summaryView];
+    }
+}
+
+#pragma mark - XDSummaryViewDelegate
+
+- (void)summaryView:(XDSummaryView *)summaryView didSelectedAtIndex:(NSInteger)index
+{
+    if (_selectedSummaryIndex != index) {
+        if (_selectedSummaryIndex >= 0) {
+            XDSummaryView *view = [self.summaryViews objectAtIndex:_selectedSummaryIndex];
+            view.backgroundColor = [UIColor clearColor];
+            view.layer.borderWidth = 0;
+        }
+        
+        _selectedSummaryIndex = index;
+        XDSummaryView *selectedView = [self.summaryViews objectAtIndex:_selectedSummaryIndex];
+        selectedView.layer.borderWidth = 2.0;
+        selectedView.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+
+    }
 }
 
 @end

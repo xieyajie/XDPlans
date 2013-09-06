@@ -22,6 +22,8 @@ static XDManagerHelper *helper = nil;
     return helper;
 }
 
+#pragma mark - 正则表达式 验证格式
+
 //电话号码匹配
 + (BOOL)isMobileNumber:(NSString *)mobileNum
 {
@@ -85,6 +87,53 @@ static XDManagerHelper *helper = nil;
         return NO;
     }
 }
+
+#pragma mark - 转换tag值
+
+static int tagBase = 100;
+
++ (NSInteger)tagCompileWithInteger:(NSInteger)integer
+{
+    return (100 + integer);
+}
+
++ (NSInteger)tagDecompileWithInteger:(NSInteger)integer
+{
+    return (integer - tagBase);
+}
+
+#pragma mark - 图片混合
+
++ (UIImage *)colorizeImage:(UIImage *)baseImage withColor:(UIColor *)theColor
+{
+    UIGraphicsBeginImageContext(baseImage.size);//创建一个基于位图的图形上下文并使其成为当前上下文。
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();//返回  当前图形上下文
+    //这里取到的不是UIImageView类型的,况且也没有UIImageView那个东西..这里取到的是UIImage对应的赋值给它的那个图片的大小...
+    CGRect area = CGRectMake(0, 0, baseImage.size.width, baseImage.size.height);
+    
+    CGContextScaleCTM(ctx, 1, -1);//改变用户的规模坐标系统....(X.Y)..
+    CGContextTranslateCTM(ctx, 0, -area.size.height);//更改用户的上下文中的坐标原点系统。
+    
+    CGContextSaveGState(ctx);
+    CGContextClipToMask(ctx, area, baseImage.CGImage);
+    
+    [theColor set];
+    CGContextFillRect(ctx, area);
+    
+    CGContextRestoreGState(ctx);
+    
+    CGContextSetBlendMode(ctx, kCGBlendModeColorBurn);
+    
+    CGContextDrawImage(ctx, area, baseImage.CGImage);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 
 
 @end

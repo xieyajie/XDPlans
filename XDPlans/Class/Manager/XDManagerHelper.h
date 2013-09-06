@@ -15,4 +15,9 @@
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
 + (BOOL)isEmail:(NSString *)email;
 
++ (NSInteger)tagCompileWithInteger:(NSInteger)integer;
++ (NSInteger)tagDecompileWithInteger:(NSInteger)integer;
+
++ (UIImage *)colorizeImage:(UIImage *)baseImage withColor:(UIColor *)theColor;
+
 @end

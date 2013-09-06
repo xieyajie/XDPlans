@@ -13,6 +13,7 @@
 #import "XDAccountLoginViewController.h"
 #import "XDTodayPlanViewController.h"
 #import "XDAllPlansViewController.h"
+#import "XDActionPlanViewController.h"
 #import "XDSettingViewController.h"
 #import "XDMenuCell.h"
 
@@ -34,13 +35,26 @@
 
 @property (nonatomic, strong) UIView *headerView;
 
+@property (nonatomic, strong) UINavigationController *accountNC;
+@property (nonatomic, strong) UINavigationController *allPlansNC;
+@property (nonatomic, strong) UINavigationController *actionPlanNC;
+@property (nonatomic, strong) UINavigationController *todayPlanNC;
+@property (nonatomic, strong) UINavigationController *settingNC;
+
 @end
 
 @implementation XDMenuViewController
 
 @synthesize headerView = _headerView;
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize accountNC = _accountNC;
+@synthesize allPlansNC = _allPlansNC;
+@synthesize actionPlanNC = _actionPlanNC;
+@synthesize todayPlanNC = _todayPlanNC;
+@synthesize settingNC = _settingNC;
+
+
+- (id)initWithStyle:(UITableViewStyle)style selectedIndex:(NSInteger)index
 {
     self = [super initWithStyle:style];
     if (self) {
@@ -51,7 +65,7 @@
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"今日计划", KMENU_TITLE, @"menu_todayPlan.png", KMENU_NORMOLICON, @"menu_todayPlanSelected.png", KMENU_SELECTEDICON, nil]];
         [_dataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"设置", KMENU_TITLE, @"menu_setting.png", KMENU_NORMOLICON, @"menu_settingSelected.png", KMENU_SELECTEDICON, nil]];
         
-        _selectedRow = 2;
+        _selectedRow = index;
     }
     return self;
 }
@@ -105,6 +119,61 @@
     }
     
     return _headerView;
+}
+
+- (UINavigationController *)accountNC
+{
+    if (_accountNC == nil) {
+        XDAccountLoginViewController *accountVC = [[XDAccountLoginViewController alloc] initWithStyle:UITableViewStylePlain];
+        _accountNC = [[UINavigationController alloc] initWithRootViewController:accountVC];
+        _accountNC.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+    
+    return _accountNC;
+}
+
+- (UINavigationController *)allPlansNC
+{
+    if (_allPlansNC == nil) {
+        XDAllPlansViewController *allPlansVC = [[XDAllPlansViewController alloc] init];
+        _allPlansNC = [[UINavigationController alloc] initWithRootViewController:allPlansVC];
+        _allPlansNC.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+    
+    return _allPlansNC;
+}
+
+- (UINavigationController *)actionPlanNC
+{
+    if (_actionPlanNC == nil) {
+        XDActionPlanViewController *actionVC = [[XDActionPlanViewController alloc] init];
+        _actionPlanNC = [[UINavigationController alloc] initWithRootViewController:actionVC];
+        _actionPlanNC.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+    
+    return _actionPlanNC;
+}
+
+- (UINavigationController *)todayPlanNC
+{
+    if (_todayPlanNC == nil) {
+        XDTodayPlanViewController *todayPlanVC = [[XDTodayPlanViewController alloc] initWithStyle:UITableViewStylePlain];
+        _todayPlanNC = [[UINavigationController alloc] initWithRootViewController:todayPlanVC];
+        _todayPlanNC.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+    
+    return _todayPlanNC;
+}
+
+- (UINavigationController *)settingNC
+{
+    if (_settingNC == nil) {
+        XDSettingViewController *settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        _settingNC = [[UINavigationController alloc] initWithRootViewController:settingVC];
+        _settingNC.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
+    }
+    
+    return _settingNC;
 }
 
 #pragma mark - notification
@@ -176,26 +245,22 @@
         
         NSString *title = [[_dataSource objectAtIndex:indexPath.row] objectForKey:KMENU_TITLE];
         if ([title isEqualToString:@"想做的事"]) {
-            XDAllPlansViewController *allPlansVC = [[XDAllPlansViewController alloc] init];
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:allPlansVC];
+            
+            self.sidePanelController.centerPanel = self.allPlansNC;
         }
         else if([title isEqualToString:@"正在进行"])
         {
-            
+            self.sidePanelController.centerPanel = self.actionPlanNC;
         }
         else if ([title isEqualToString:@"今日计划"])
         {
-            XDTodayPlanViewController *todayPlanVC = [[XDTodayPlanViewController alloc] initWithStyle:UITableViewStylePlain];
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:todayPlanVC];
+            
+            self.sidePanelController.centerPanel = self.todayPlanNC;
         }
         else if ([title isEqualToString:@"设置"])
         {
-            XDSettingViewController *settingVC = [[XDSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
-            self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:settingVC];
+            self.sidePanelController.centerPanel = self.settingNC;
         }
-        
-        UINavigationController *navigation = (UINavigationController *)self.sidePanelController.centerPanel;
-        navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
     }
 }
 
@@ -206,10 +271,30 @@
     [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:_selectedRow inSection:0] animated:YES];
     _selectedRow = -1;
     
-    XDAccountLoginViewController *accountVC = [[XDAccountLoginViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:accountVC];
-    navigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
-    self.sidePanelController.centerPanel = navigation;
+    self.sidePanelController.centerPanel = self.accountNC;
+}
+
+- (UINavigationController *)navigationForIndex:(NSInteger)index
+{
+    NSString *title = [[_dataSource objectAtIndex:_selectedRow] objectForKey:KMENU_TITLE];
+    if ([title isEqualToString:@"想做的事"]) {
+        return self.allPlansNC;
+    }
+    else if([title isEqualToString:@"正在进行"])
+    {
+        return self.actionPlanNC;
+    }
+    else if ([title isEqualToString:@"今日计划"])
+    {
+        
+        return self.todayPlanNC;
+    }
+    else if ([title isEqualToString:@"设置"])
+    {
+        return self.settingNC;
+    }
+    
+    return nil;
 }
 
 @end

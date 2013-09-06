@@ -12,4 +12,8 @@
 
 @interface XDMenuViewController : UITableViewController
 
+- (id)initWithStyle:(UITableViewStyle)style selectedIndex:(NSInteger)index;
+
+- (UINavigationController *)navigationForIndex:(NSInteger)index;
+
 @end

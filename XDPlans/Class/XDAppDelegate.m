@@ -27,16 +27,10 @@
     self.viewController.shouldDelegateAutorotateToVisiblePanel = YES;
     self.viewController.leftGapPercentage = KSIDESLIP_PERCENT;
     self.viewController.allowRightSwipe = NO;
-    
-    UINavigationController *todayNavigation = [[UINavigationController alloc] initWithRootViewController:[[XDTodayPlanViewController alloc] init]];
-    todayNavigation.navigationBar.tintColor = [UIColor colorWithRed:143 / 255.0 green:183 / 255.0 blue:198 / 255.0 alpha:1.0];
-    self.viewController.centerPanel = todayNavigation;
-    if (KSIDE == 0) {
-        self.viewController.leftPanel = [[XDMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-    }
-    else{
-        self.viewController.rightPanel = [[UIViewController alloc] init];
-    }
+
+    XDMenuViewController *menuVC = [[XDMenuViewController alloc] initWithStyle:UITableViewStylePlain selectedIndex:2];
+    self.viewController.leftPanel = menuVC;
+    self.viewController.centerPanel = [menuVC navigationForIndex:2];
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

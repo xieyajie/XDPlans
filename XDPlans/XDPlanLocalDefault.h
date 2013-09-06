@@ -28,6 +28,7 @@
 #define KNOTIFICATION_LOGIN @"notification_login"
 #define KNOTIFICATION_CUTFINISH @"notification_cutImageFinish"
 #define KNOTIFICATION_MOVE @"notification_move"
+#define KNOTIFICATION_PLANCHOOSECOLORFINISH @"notification_planChooseColorFinish"
 
 //user header
 #define KUSER_HEADERIMAGE_WIDTH 80.0
