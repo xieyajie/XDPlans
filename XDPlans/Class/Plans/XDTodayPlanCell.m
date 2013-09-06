@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "XDTodayPlanCell.h"
 
 #import "XDManagerHelper.h"
@@ -157,12 +158,14 @@
 
 - (void)updateWithColor:(UIColor *)color
 {
-    _color = [UIColor colorWithRed:0.42 green:0.4 blue:0.30 alpha:1.0];
+    _color = color;
+    
+    UIButton *bt = [self.buttons objectAtIndex:0];
+    UIImage *img = [bt imageForState:UIControlStateNormal];
+    UIImage *image = [XDManagerHelper colorizeImage:img withColor:_color];
+    
     for (UIButton *button in self.buttons) {
-        if (button.selected) {
-            UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
-            [button setImage:image forState: UIControlStateNormal];
-        }
+        [button setImage:image forState: UIControlStateSelected];
     }
 }
 
@@ -197,13 +200,17 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(margin + (margin + width) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
         button.contentMode = UIViewContentModeScaleAspectFit;
         [button setImage:[UIImage imageNamed:@"plans_workload.png"] forState: UIControlStateNormal];
+        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
+        [button setImage:image forState: UIControlStateSelected];
         [button addTarget:self action:@selector(wordloadButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
         [self.buttons addObject:button];
     }
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
-    [button setTitle:@"颜色" forState:UIControlStateNormal];
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    [button setImage:[UIImage imageNamed:@"plans_paint_normal.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"plans_paint_selected.png"] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:button];
 }
@@ -213,13 +220,6 @@
     UIButton *button = (UIButton *)sender;
     BOOL selected = button.selected;
     button.selected = !selected;
-    if (!selected) {
-        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_workload.png"] withColor:_color];
-        [button setImage:image forState: UIControlStateNormal];
-    }
-    else{
-        [button setImage:[UIImage imageNamed:@"plans_workload.png"] forState: UIControlStateNormal];
-    }
 }
 
 #pragma mark - 完成信心指数
@@ -234,10 +234,19 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(margin + (margin + width) * i, 10, width, KTODAY_CELL_HEIGHT_NORMAL - 20)];
         button.contentMode = UIViewContentModeScaleAspectFit;
         [button setImage:[UIImage imageNamed:@"plans_finish.png"] forState: UIControlStateNormal];
+        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_finish.png"] withColor:_color];
+        [button setImage:image forState: UIControlStateSelected];
         [button addTarget:self action:@selector(finishButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
         [self.buttons addObject:button];
     }
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 50, KTODAY_CELL_HEIGHT_NORMAL - 20)];
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    [button setImage:[UIImage imageNamed:@"plans_paint_normal.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"plans_paint_selected.png"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(colorAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:button];
 }
 
 - (void)finishButtonAction:(id)sender
@@ -245,13 +254,6 @@
     UIButton *button = (UIButton *)sender;
     BOOL selected = button.selected;
     button.selected = !selected;
-    if (!selected) {
-        UIImage *image = [XDManagerHelper colorizeImage:[UIImage imageNamed:@"plans_finish.png"] withColor:_color];
-        [button setImage:image forState: UIControlStateNormal];
-    }
-    else{
-        [button setImage:[UIImage imageNamed:@"plans_finish.png"] forState: UIControlStateNormal];
-    }
 }
 
 #pragma mark - 今日安排

@@ -35,6 +35,7 @@
     NSMutableArray *_dataSource;
     
     UITextField *_moodText;
+    UITextView *_planText;
     UITextView *_summaryText;
 }
 
@@ -98,7 +99,7 @@
 {
     if (_headerView == nil) {
         CGFloat viewHeight = 80.0;
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight + 10)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight)];
         _headerView.backgroundColor = [UIColor clearColor];
         
         UILabel *ymLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
@@ -152,7 +153,7 @@
 - (UIBarButtonItem *)hideKeyboardItem
 {
     if (_hideKeyboardItem == nil) {
-        _hideKeyboardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plans_hideKeyboard.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(hideKeyboardAction:)];
+        _hideKeyboardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plans_hideKeyboard.png"] style:UIBarButtonItemStylePlain target:self action:@selector(hideKeyboardAction:)];
     }
     
     return _hideKeyboardItem;
@@ -257,6 +258,7 @@
                 break;
             case KSECTION_PLAN:
                 [cell configurationPlan];
+                _planText = cell.textView;
                 break;
             case KSECTION_SUMMARY:
                 [cell configurationSummary];
@@ -326,6 +328,7 @@
 - (void)hideKeyboardAction:(id)sender
 {
     [_moodText resignFirstResponder];
+    [_planText resignFirstResponder];
     [_summaryText resignFirstResponder];
 }
 

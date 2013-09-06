@@ -148,7 +148,7 @@
         return;
     }
     NSDictionary *rgbDic = [[_dataSource objectAtIndex:_selectedRow] objectForKey:KPLANS_COLOR_DATA_RGB];
-    UIColor *color = [UIColor colorWithRed:[[rgbDic objectForKey:KPLANS_COLOR_DATA_RED] integerValue] / 255.0 green:[[rgbDic objectForKey:KPLANS_COLOR_DATA_GREEN] integerValue] / 255.0 blue:[[rgbDic objectForKey:KPLANS_COLOR_DATA_BLUE] integerValue] / 255.0 alpha:1.0];
+    UIColor *color = [UIColor colorWithRed:[[rgbDic objectForKey:KPLANS_COLOR_DATA_RED] integerValue] / 255.0 green:[[rgbDic objectForKey:KPLANS_COLOR_DATA_GREEN] integerValue] / 255.0 blue:[[rgbDic objectForKey:KPLANS_COLOR_DATA_BLUE] integerValue] / 255.0 alpha:0.5];
     if (_delegate && [_delegate respondsToSelector:@selector(colorPickerSlectedColor:withCaller:)]) {
         [_delegate colorPickerSlectedColor:color withCaller:_callerObject];
     }

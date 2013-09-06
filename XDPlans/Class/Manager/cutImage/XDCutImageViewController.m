@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 XD. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "XDCutImageViewController.h"
 
 #import "XDPlanLocalDefault.h"
@@ -64,7 +65,7 @@
     
     _imageCutView = [[UIView alloc] initWithFrame:CGRectMake(_imageView.frame.size.width / 2 - KUSER_HEADERIMAGE_WIDTH, _imageView.frame.size.height / 2 - KUSER_HEADERIMAGE_HEIGHT, KUSER_HEADERIMAGE_WIDTH * 2, KUSER_HEADERIMAGE_HEIGHT * 2)];
     _imageCutView.backgroundColor = [UIColor clearColor];
-    _imageCutView.layer.borderWidth = 1;
+    _imageCutView.layer.borderWidth = 1.0;
     _imageCutView.layer.borderColor = [[UIColor redColor] CGColor];
     [self.view addSubview:_imageCutView];
 }
