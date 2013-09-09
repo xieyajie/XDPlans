@@ -35,6 +35,7 @@
 
 @property (nonatomic, unsafe_unretained) id<XDTodayPlayCellDelegate>delegate;
 
+@property (nonatomic, strong) UIButton *moodButton;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
 
@@ -59,6 +60,7 @@
 @protocol XDTodayPlayCellDelegate <NSObject>
 
 @optional
+- (void)planCellSelectedMoodPicker:(XDTodayPlanCell *)planCell;
 - (void)planCellSelectedColorPicker:(XDTodayPlanCell *)planCell;
 
 @end

@@ -84,6 +84,7 @@
 @synthesize textEditor = _textEditor;
 
 //public
+@synthesize moodButton = _moodButton;
 @synthesize textField = _textField;
 @synthesize textView = _textView;
 
@@ -154,6 +155,13 @@
     }
 }
 
+- (void)moodAction:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(planCellSelectedMoodPicker:)]) {
+        [_delegate planCellSelectedMoodPicker:self];
+    }
+}
+
 #pragma mark - public
 
 - (void)updateWithColor:(UIColor *)color
@@ -173,15 +181,16 @@
 
 - (void)configurationMood
 {
-    UIButton *moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    moodButton.frame = CGRectMake(10, 10, 40, KTODAY_CELL_HEIGHT_NORMAL - 20);
-    [moodButton setImage:[UIImage imageNamed:@"plans_mood_image.png"] forState:UIControlStateNormal];
-    moodButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    moodButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    moodButton.backgroundColor = [UIColor clearColor];
-    [self.contentView addSubview:moodButton];
+    _moodButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _moodButton.frame = CGRectMake(10, 10, 40, KTODAY_CELL_HEIGHT_NORMAL - 20);
+    [_moodButton setImage:[UIImage imageNamed:@"plans_mood_image.png"] forState:UIControlStateNormal];
+    _moodButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _moodButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _moodButton.backgroundColor = [UIColor clearColor];
+    [_moodButton addTarget:self action:@selector(moodAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:_moodButton];
     
-    _moodField = [[UITextField alloc] initWithFrame:CGRectMake(moodButton.frame.origin.x + moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37) / 2, self.frame.size.width - (moodButton.frame.origin.x + moodButton.frame.size.width + 30), 37)];
+    _moodField = [[UITextField alloc] initWithFrame:CGRectMake(_moodButton.frame.origin.x + _moodButton.frame.size.width + 10, (KTODAY_CELL_HEIGHT_NORMAL - 37) / 2, self.frame.size.width - (_moodButton.frame.origin.x + _moodButton.frame.size.width + 30), 37)];
     _moodField.borderStyle = UITextBorderStyleBezel;
     _moodField.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
     _moodField.placeholder = @"心情怎么样？";

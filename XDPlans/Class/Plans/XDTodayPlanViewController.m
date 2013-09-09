@@ -11,6 +11,7 @@
 
 #import "XDColorViewController.h"
 #import "XDTodayPlanCell.h"
+#import "XDMoodPicker.h"
 
 #import "XDManagerHelper.h"
 #import "XDWeatherManager.h"
@@ -30,10 +31,11 @@
 #define KSECTION_SUMMARY 4
 #define KSECTION_GRADE 5
 
-@interface XDTodayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate>
+@interface XDTodayPlanViewController ()<XDTodayPlayCellDelegate, XDColorViewControllerDelegate, XDMoodPickerDelegate>
 {
     NSMutableArray *_dataSource;
     
+    UIButton *_moodButton;
     UITextField *_moodText;
     UITextView *_planText;
     UITextView *_summaryText;
@@ -246,6 +248,8 @@
         switch (indexPath.section) {
             case KSECTION_MOOD:
                 [cell configurationMood];
+                cell.delegate = self;
+                _moodButton = cell.moodButton;
                 _moodText = cell.textField;
                 break;
             case KSECTION_WORKLOAD:
@@ -307,6 +311,13 @@
 
 #pragma mark - XDTodayPlayCellDelegate
 
+- (void)planCellSelectedMoodPicker:(XDTodayPlanCell *)planCell
+{
+    XDMoodPicker *moodPicker = [[XDMoodPicker alloc] initWithTitle:@"选择表情" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+    moodPicker.moodDelegate = self;
+    [moodPicker showInView:self.view];
+}
+
 - (void)planCellSelectedColorPicker:(XDTodayPlanCell *)planCell
 {
     XDColorViewController *colorVC = [[XDColorViewController alloc] initWithStyle:UITableViewStylePlain];
@@ -321,6 +332,15 @@
 {
     XDTodayPlanCell *planCell = (XDTodayPlanCell *)caller;
     [planCell updateWithColor:color];
+}
+
+#pragma mark - XDMoodPickerDelegate
+
+- (void)moodPicker:(XDMoodPicker *)moodPicker selectedImage:(UIImage *)image
+{
+    if (image != nil) {
+        [_moodButton setImage:image forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - item action
