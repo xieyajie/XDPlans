@@ -10,7 +10,21 @@
 
 static XDManagerHelper *helper = nil;
 
+@interface XDManagerHelper()
+
+@property (nonatomic, strong) NSArray *weeksArray;
+@property (nonatomic, strong) NSCalendar *calendar;
+@property (nonatomic, strong) NSDateFormatter *y_mFormatter;
+@property (nonatomic, strong) NSDateFormatter *ymdFormatter;
+
+@end
+
 @implementation XDManagerHelper
+
+@synthesize weeksArray = _weeksArray;
+@synthesize calendar = _calendar;
+@synthesize y_mFormatter = _y_mFormatter;
+@synthesize ymdFormatter = _ymdFormatter;
 
 + (id)shareHelper
 {
@@ -134,6 +148,85 @@ static int tagBase = 100;
     return newImage;
 }
 
+#pragma mark - 时间转换
 
+- (NSArray *)weeksArray
+{
+    if (_weeksArray == nil) {
+        _weeksArray = [[NSArray alloc] initWithObjects:@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
+    }
+    
+    return _weeksArray;
+}
+
+- (NSCalendar *)calendar
+{
+    if (_calendar == nil) {
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        /*
+         设定每周的第一天从星期几开始，比如:
+         .  如需设定从星期日开始，则value传入1
+         .  如需设定从星期一开始，则value传入2
+         */
+        [_calendar setFirstWeekday:2];
+    }
+    
+    return _calendar;
+}
+
+- (NSDateFormatter *)y_mFormatter
+{
+    if (_y_mFormatter == nil) {
+        _y_mFormatter = [[NSDateFormatter alloc] init];
+        _y_mFormatter.dateFormat = @"yyyy - MM";
+    }
+    
+    return _y_mFormatter;
+}
+
+- (NSDateFormatter *)ymdFormatter
+{
+    if (_ymdFormatter == nil) {
+        _ymdFormatter = [[NSDateFormatter alloc] init];
+        _ymdFormatter.dateFormat = @"yyyyMMDD";
+    }
+    
+    return _ymdFormatter;
+}
+
+- (NSInteger)dayForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSDayCalendarUnit fromDate:date];
+    return [component day];
+}
+
+- (NSString *)weekForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSWeekdayCalendarUnit fromDate:date];
+    NSInteger week = [component weekday] - 1;
+    return [self.weeksArray objectAtIndex:week];
+}
+
+- (NSInteger)monthForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSMonthCalendarUnit fromDate:date];
+    return [component month];
+}
+
+- (NSInteger)yearForDate:(NSDate *)date
+{
+    NSDateComponents *component = [self.calendar components:NSYearCalendarUnit fromDate:date];
+    return [component year];
+}
+
+- (NSString *)year_monthForDate:(NSDate *)date
+{
+    return [self.y_mFormatter stringFromDate:date];
+}
+
+- (NSString *)ymdForDate:(NSDate *)date
+{
+    return [self.ymdFormatter stringFromDate:date];
+}
 
 @end

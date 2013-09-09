@@ -35,6 +35,10 @@
 {
     NSMutableArray *_dataSource;
     
+    NSDate *_todayDate;
+    UILabel *_ymwLabel;
+    UILabel *_dayLabel;
+    
     UIButton *_moodButton;
     UITextField *_moodText;
     UITextView *_planText;
@@ -80,6 +84,7 @@
     // Uncomment the following line to preserve selection between presentations.
     self.title = @"今日计划";
     self.view.backgroundColor = [UIColor colorWithRed:223 / 255.0 green:221 / 255.0 blue:212 / 255.0 alpha:1.0];
+    _todayDate = [NSDate date];
     
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableHeaderView = self.headerView;
@@ -95,6 +100,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    XDManagerHelper *helper = [XDManagerHelper shareHelper];
+    NSString *oldStr = [helper ymdForDate:_todayDate];
+    NSString *newStr = [helper ymdForDate:[NSDate date]];
+    if (![oldStr isEqualToString:newStr]) {
+        
+        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [helper year_monthForDate:_todayDate], [helper weekForDate:_todayDate]];
+        _dayLabel.text = [NSString stringWithFormat:@"%i", [helper dayForDate:_todayDate]];
+    }
+}
+
 #pragma mark - get
 
 - (UIView *)headerView
@@ -104,25 +121,27 @@
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, viewHeight)];
         _headerView.backgroundColor = [UIColor clearColor];
         
-        UILabel *ymLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
-        ymLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
-        ymLabel.font = [UIFont systemFontOfSize:14.0];
-        ymLabel.textColor = [UIColor whiteColor];
-        ymLabel.text = @"  2013 - 09  星期一";
-        [_headerView addSubview:ymLabel];
+        XDManagerHelper *helper = [XDManagerHelper shareHelper];
+        
+        _ymwLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _headerView.frame.size.width, 20)];
+        _ymwLabel.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
+        _ymwLabel.font = [UIFont systemFontOfSize:14.0];
+        _ymwLabel.textColor = [UIColor whiteColor];
+        _ymwLabel.text = [NSString stringWithFormat:@"%@  %@", [helper year_monthForDate:_todayDate], [helper weekForDate:_todayDate]];
+        [_headerView addSubview:_ymwLabel];
         
         //dateView
         UIView *dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 70, 60)];
         dateView.backgroundColor = [UIColor clearColor];
         [_headerView addSubview:dateView];
         
-        UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, dateView.frame.size.height)];
-        dayLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-        dayLabel.textAlignment = KTextAlignmentCenter;
-        dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
-        dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
-        dayLabel.text = @"29";
-        [dateView addSubview:dayLabel];
+        _dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dateView.frame.size.width, dateView.frame.size.height)];
+        _dayLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
+        _dayLabel.textAlignment = KTextAlignmentCenter;
+        _dayLabel.font = [UIFont boldSystemFontOfSize:35.0];
+        _dayLabel.textColor = [UIColor colorWithRed:91 / 255.0 green:142 / 255.0 blue:161 / 255.0 alpha:1.0];
+        _dayLabel.text = [NSString stringWithFormat:@"%i", [helper dayForDate:_todayDate]];
+        [dateView addSubview:_dayLabel];
         
         //weatherView
         UIView *weatherView = [[UIView alloc] initWithFrame:CGRectMake(dateView.frame.origin.x + dateView
@@ -227,12 +246,6 @@
     return 1;
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    NSDictionary *dic = [_dataSource objectAtIndex:section];
-//    return [dic objectForKey:KTODAY_DATA_TITLE];
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = [_dataSource objectAtIndex:indexPath.section];
@@ -277,8 +290,6 @@
         }
     }
     
-//    cell.userInteractionEnabled = _enable;
-    
     return cell;
 }
 
@@ -302,11 +313,6 @@
     }
     
     return KTODAY_CELL_HEIGHT_CONTENT;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
 }
 
 #pragma mark - XDTodayPlayCellDelegate
