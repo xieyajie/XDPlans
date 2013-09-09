@@ -15,8 +15,6 @@
 		3A38FC3D17D969BA00E4F233 /* plans_summary_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC3817D969BA00E4F233 /* plans_summary_3@2x.png */; };
 		3A38FC4017D97A6600E4F233 /* plans_finish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC3E17D97A6600E4F233 /* plans_finish@2x.png */; };
 		3A38FC4117D97A6600E4F233 /* plans_workload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC3F17D97A6600E4F233 /* plans_workload@2x.png */; };
-		3A38FC4417D99AC900E4F233 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A38FC4317D99AC900E4F233 /* XDColorViewController.m */; };
-		3A38FC4617D99BFB00E4F233 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC4517D99BFB00E4F233 /* XDColor.plist */; };
 		3A38FC5E17D9A47C00E4F233 /* plans_color_0@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC4817D9A47C00E4F233 /* plans_color_0@2x.jpg */; };
 		3A38FC5F17D9A47C00E4F233 /* plans_color_10@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC4917D9A47C00E4F233 /* plans_color_10@2x.jpg */; };
 		3A38FC6017D9A47C00E4F233 /* plans_color_11@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC4A17D9A47C00E4F233 /* plans_color_11@2x.jpg */; };
@@ -49,8 +47,12 @@
 		3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91A917D308850055EC4A /* XDMenuViewController.m */; };
 		3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */; };
 		3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */; };
-		3A45BCB017DD6019003BA166 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BCAF17DD6019003BA166 /* XDMood.plist */; };
-		3A45BCB617DD6F29003BA166 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCB517DD6F29003BA166 /* XDMoodPicker.m */; };
+		3A45BCC417DDBE84003BA166 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */; };
+		3A45BCC517DDBE84003BA166 /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */; };
+		3A45BCC617DDBE84003BA166 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BCBD17DDBE84003BA166 /* XDColor.plist */; };
+		3A45BCC717DDBE84003BA166 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */; };
+		3A45BCC817DDBE84003BA166 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BCC117DDBE84003BA166 /* XDMood.plist */; };
+		3A45BCC917DDBE84003BA166 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */; };
 		3A4BD34417D6C38B001F0D77 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BD34317D6C38B001F0D77 /* XDManagerHelper.m */; };
 		3A4BD34817D6CA47001F0D77 /* userLoginDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD34617D6CA47001F0D77 /* userLoginDefault@2x.png */; };
 		3A4BD34917D6CA47001F0D77 /* userLogoutDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BD34717D6CA47001F0D77 /* userLogoutDefault@2x.png */; };
@@ -148,7 +150,6 @@
 		3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63D17D4834D00FF6400 /* menu_todayPlanSelected@2x.png */; };
 		3A56B64117D4834D00FF6400 /* menu_actionPlan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63E17D4834D00FF6400 /* menu_actionPlan@2x.png */; };
 		3A56B64217D4834D00FF6400 /* menu_actionPlanSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56B63F17D4834D00FF6400 /* menu_actionPlanSelected@2x.png */; };
-		3A8FA85917D56F940077BAFE /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */; };
 		3A8FA86517D576F60077BAFE /* MY_ICON_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85B17D576F60077BAFE /* MY_ICON_0@2x.png */; };
 		3A8FA86617D576F60077BAFE /* MY_ICON_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85C17D576F60077BAFE /* MY_ICON_1@2x.png */; };
 		3A8FA86717D576F60077BAFE /* MY_ICON_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA85D17D576F60077BAFE /* MY_ICON_2@2x.png */; };
@@ -159,7 +160,6 @@
 		3A8FA86C17D576F60077BAFE /* MY_ICON_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86217D576F60077BAFE /* MY_ICON_7@2x.png */; };
 		3A8FA86D17D576F60077BAFE /* MY_ICON_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86317D576F60077BAFE /* MY_ICON_8@2x.png */; };
 		3A8FA86E17D576F60077BAFE /* MY_ICON_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA86417D576F60077BAFE /* MY_ICON_9@2x.png */; };
-		3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */; };
 		3A8FA87617D5B5680077BAFE /* plans_unaction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */; };
 		3A8FA87917D5CD600077BAFE /* XDAccountLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8FA87817D5CD600077BAFE /* XDAccountLoginViewController.m */; };
 		3A8FA87F17D5E73A0077BAFE /* account_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87B17D5E73A0077BAFE /* account_contacts@2x.png */; };
@@ -208,9 +208,6 @@
 		3A38FC3817D969BA00E4F233 /* plans_summary_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_summary_3@2x.png"; sourceTree = "<group>"; };
 		3A38FC3E17D97A6600E4F233 /* plans_finish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_finish@2x.png"; sourceTree = "<group>"; };
 		3A38FC3F17D97A6600E4F233 /* plans_workload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_workload@2x.png"; sourceTree = "<group>"; };
-		3A38FC4217D99AC900E4F233 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
-		3A38FC4317D99AC900E4F233 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
-		3A38FC4517D99BFB00E4F233 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
 		3A38FC4817D9A47C00E4F233 /* plans_color_0@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plans_color_0@2x.jpg"; sourceTree = "<group>"; };
 		3A38FC4917D9A47C00E4F233 /* plans_color_10@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plans_color_10@2x.jpg"; sourceTree = "<group>"; };
 		3A38FC4A17D9A47C00E4F233 /* plans_color_11@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plans_color_11@2x.jpg"; sourceTree = "<group>"; };
@@ -250,9 +247,16 @@
 		3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanViewController.m; sourceTree = "<group>"; };
 		3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
 		3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
-		3A45BCAF17DD6019003BA166 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
-		3A45BCB417DD6F29003BA166 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
-		3A45BCB517DD6F29003BA166 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
+		3A45BCB817DDBE84003BA166 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
+		3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
+		3A45BCBA17DDBE84003BA166 /* XDTodayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanCell.h; sourceTree = "<group>"; };
+		3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
+		3A45BCBD17DDBE84003BA166 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
+		3A45BCBE17DDBE84003BA166 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
+		3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
+		3A45BCC117DDBE84003BA166 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
+		3A45BCC217DDBE84003BA166 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
+		3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
 		3A4BD34217D6C38B001F0D77 /* XDManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDManagerHelper.h; sourceTree = "<group>"; };
 		3A4BD34317D6C38B001F0D77 /* XDManagerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDManagerHelper.m; sourceTree = "<group>"; };
 		3A4BD34617D6CA47001F0D77 /* userLoginDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userLoginDefault@2x.png"; sourceTree = "<group>"; };
@@ -371,8 +375,6 @@
 		3A56B63D17D4834D00FF6400 /* menu_todayPlanSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_todayPlanSelected@2x.png"; sourceTree = "<group>"; };
 		3A56B63E17D4834D00FF6400 /* menu_actionPlan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlan@2x.png"; sourceTree = "<group>"; };
 		3A56B63F17D4834D00FF6400 /* menu_actionPlanSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_actionPlanSelected@2x.png"; sourceTree = "<group>"; };
-		3A8FA85717D56F940077BAFE /* XDTodayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanCell.h; sourceTree = "<group>"; };
-		3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
 		3A8FA85B17D576F60077BAFE /* MY_ICON_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_0@2x.png"; sourceTree = "<group>"; };
 		3A8FA85C17D576F60077BAFE /* MY_ICON_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_1@2x.png"; sourceTree = "<group>"; };
 		3A8FA85D17D576F60077BAFE /* MY_ICON_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_2@2x.png"; sourceTree = "<group>"; };
@@ -383,8 +385,6 @@
 		3A8FA86217D576F60077BAFE /* MY_ICON_7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_7@2x.png"; sourceTree = "<group>"; };
 		3A8FA86317D576F60077BAFE /* MY_ICON_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_8@2x.png"; sourceTree = "<group>"; };
 		3A8FA86417D576F60077BAFE /* MY_ICON_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MY_ICON_9@2x.png"; sourceTree = "<group>"; };
-		3A8FA87117D5A8810077BAFE /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
-		3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
 		3A8FA87517D5B5680077BAFE /* plans_unaction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_unaction@2x.png"; sourceTree = "<group>"; };
 		3A8FA87717D5CD600077BAFE /* XDAccountLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAccountLoginViewController.h; sourceTree = "<group>"; };
 		3A8FA87817D5CD600077BAFE /* XDAccountLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAccountLoginViewController.m; sourceTree = "<group>"; };
@@ -529,22 +529,15 @@
 		3A3B919B17D2FBBC0055EC4A /* Plans */ = {
 			isa = PBXGroup;
 			children = (
+				3A45BCB717DDBE84003BA166 /* cell */,
+				3A45BCBC17DDBE84003BA166 /* color */,
+				3A45BCC017DDBE84003BA166 /* mood */,
 				3A3B91C117D310CA0055EC4A /* XDTodayPlanViewController.h */,
 				3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */,
 				3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */,
 				3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */,
-				3A8FA85717D56F940077BAFE /* XDTodayPlanCell.h */,
-				3A8FA85817D56F940077BAFE /* XDTodayPlanCell.m */,
-				3A8FA87117D5A8810077BAFE /* XDAllPlansCell.h */,
-				3A8FA87217D5A8810077BAFE /* XDAllPlansCell.m */,
-				3A38FC4217D99AC900E4F233 /* XDColorViewController.h */,
-				3A38FC4317D99AC900E4F233 /* XDColorViewController.m */,
-				3A38FC4517D99BFB00E4F233 /* XDColor.plist */,
 				3A38FC7817D9D01B00E4F233 /* XDActionPlanViewController.h */,
 				3A38FC7917D9D01B00E4F233 /* XDActionPlanViewController.m */,
-				3A45BCAF17DD6019003BA166 /* XDMood.plist */,
-				3A45BCB417DD6F29003BA166 /* XDMoodPicker.h */,
-				3A45BCB517DD6F29003BA166 /* XDMoodPicker.m */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -581,6 +574,37 @@
 				3A56B62817D4758200FF6400 /* Menu */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		3A45BCB717DDBE84003BA166 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3A45BCB817DDBE84003BA166 /* XDAllPlansCell.h */,
+				3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */,
+				3A45BCBA17DDBE84003BA166 /* XDTodayPlanCell.h */,
+				3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		3A45BCBC17DDBE84003BA166 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				3A45BCBD17DDBE84003BA166 /* XDColor.plist */,
+				3A45BCBE17DDBE84003BA166 /* XDColorViewController.h */,
+				3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		3A45BCC017DDBE84003BA166 /* mood */ = {
+			isa = PBXGroup;
+			children = (
+				3A45BCC117DDBE84003BA166 /* XDMood.plist */,
+				3A45BCC217DDBE84003BA166 /* XDMoodPicker.h */,
+				3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */,
+			);
+			path = mood;
 			sourceTree = "<group>";
 		};
 		3A4BD34517D6CA47001F0D77 /* Share */ = {
@@ -988,12 +1012,13 @@
 				3A4BD35417D6D905001F0D77 /* setting_send@2x.png in Resources */,
 				3A500B1917D876EB00461979 /* bullist@2x.png in Resources */,
 				3A8FA86617D576F60077BAFE /* MY_ICON_1@2x.png in Resources */,
+				3A45BCC617DDBE84003BA166 /* XDColor.plist in Resources */,
 				3A38FC6517D9A47C00E4F233 /* plans_color_16@2x.jpg in Resources */,
 				3A38FC6017D9A47C00E4F233 /* plans_color_11@2x.jpg in Resources */,
 				3A500B3017D876EB00461979 /* justifyfull.png in Resources */,
 				3A56B63117D4758200FF6400 /* menu_todayPlan@2x.png in Resources */,
+				3A45BCC817DDBE84003BA166 /* XDMood.plist in Resources */,
 				3AFBF61E17D21B2700CA9A56 /* InfoPlist.strings in Resources */,
-				3A45BCB017DD6019003BA166 /* XDMood.plist in Resources */,
 				3A500B1717D876EB00461979 /* bold@2x.png in Resources */,
 				3A500B4917D876EB00461979 /* popoverArrowLeft.png in Resources */,
 				3A500B2A17D876EB00461979 /* indent.png in Resources */,
@@ -1057,7 +1082,6 @@
 				3A500B3817D876EB00461979 /* numlist@2x.png in Resources */,
 				3A500B3117D876EB00461979 /* justifyfull@2x.png in Resources */,
 				3A500B2117D876EB00461979 /* buttonSelected.png in Resources */,
-				3A38FC4617D99BFB00E4F233 /* XDColor.plist in Resources */,
 				3A56B64017D4834D00FF6400 /* menu_todayPlanSelected@2x.png in Resources */,
 				3A38FC6117D9A47C00E4F233 /* plans_color_12@2x.jpg in Resources */,
 				3A500B3F17D876EB00461979 /* underline.png in Resources */,
@@ -1141,37 +1165,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A38FC4417D99AC900E4F233 /* XDColorViewController.m in Sources */,
 				3AFBF62017D21B2700CA9A56 /* main.m in Sources */,
 				3A500B6217D8772000461979 /* XDCutImageViewController.m in Sources */,
 				3A3B91A117D2FBBC0055EC4A /* JASidePanelController.m in Sources */,
+				3A45BCC717DDBE84003BA166 /* XDColorViewController.m in Sources */,
 				3A8FA87917D5CD600077BAFE /* XDAccountLoginViewController.m in Sources */,
 				3A500B5817D876EB00461979 /* WETouchableView.m in Sources */,
 				3A500B5617D876EB00461979 /* WEPopoverContainerView.m in Sources */,
 				3A500B5C17D876EB00461979 /* RichTextEditorFontSizePickerViewController.m in Sources */,
 				3A500B5B17D876EB00461979 /* RichTextEditorFontPickerViewController.m in Sources */,
 				3A500B5D17D876EB00461979 /* RichTextEditorToggleButton.m in Sources */,
-				3A8FA87317D5A8810077BAFE /* XDAllPlansCell.m in Sources */,
 				3A3B91A217D2FBBC0055EC4A /* UIViewController+JASidePanel.m in Sources */,
 				3A500B4517D876EB00461979 /* UIView+RichTextEditor.m in Sources */,
 				3A500B5E17D876EB00461979 /* RichTextEditorToolbar.m in Sources */,
 				3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */,
 				3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */,
 				3A38FC7A17D9D01B00E4F233 /* XDActionPlanViewController.m in Sources */,
-				3A8FA85917D56F940077BAFE /* XDTodayPlanCell.m in Sources */,
 				3A4BD34C17D6CCB0001F0D77 /* XDSettingViewController.m in Sources */,
 				3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */,
+				3A45BCC917DDBE84003BA166 /* XDMoodPicker.m in Sources */,
 				3A500B5917D876EB00461979 /* RichTextEditor.m in Sources */,
 				3A500B4417D876EB00461979 /* UIFont+RichTextEditor.m in Sources */,
 				3A500B5717D876EB00461979 /* WEPopoverController.m in Sources */,
+				3A45BCC417DDBE84003BA166 /* XDAllPlansCell.m in Sources */,
 				3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */,
 				3A500B5A17D876EB00461979 /* RichTextEditorColorPickerViewController.m in Sources */,
 				3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */,
 				3A4BD34417D6C38B001F0D77 /* XDManagerHelper.m in Sources */,
-				3A45BCB617DD6F29003BA166 /* XDMoodPicker.m in Sources */,
 				3A56B61F17D45FA600FF6400 /* XDMenuCell.m in Sources */,
 				3AE2C9E517D4C7FB0020C93F /* XDWeatherManager.m in Sources */,
 				3A500B5517D876EB00461979 /* UIBarButtonItem+WEPopover.m in Sources */,
+				3A45BCC517DDBE84003BA166 /* XDTodayPlanCell.m in Sources */,
 				3A500B4317D876EB00461979 /* NSAttributedString+RichTextEditor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
