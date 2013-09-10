@@ -14,4 +14,6 @@
 
 + (id)shareWeather;
 
+- (void)updateWeatherInfoWithCompletion:(void (^)(BOOL finish))completion;
+
 @end

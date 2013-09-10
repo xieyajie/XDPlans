@@ -38,6 +38,9 @@
     NSDate *_todayDate;
     UILabel *_ymwLabel;
     UILabel *_dayLabel;
+    UIImageView *_weatherImgView;
+    UILabel *_weatherLabel;
+    UILabel *_cityLabel;
     
     UIButton *_moodButton;
     UITextField *_moodText;
@@ -153,19 +156,35 @@
         leftLine.backgroundColor = [UIColor colorWithRed:123 / 255.0 green:171 / 255.0 blue:188 / 255.0 alpha:1.0];
         [weatherView addSubview:leftLine];
         
-        NSDictionary *weatherDic = [[XDWeatherManager shareWeather] weatherInfo];
-
-        UIImageView *weatherImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, weatherView.frame.size.width / 3, weatherView.frame.size.height)];
-        weatherImgView.contentMode = UIViewContentModeScaleAspectFit;
-        weatherImgView.image = [weatherDic objectForKey:KWEATHER_IMAGE];
-        [weatherView addSubview:weatherImgView];
+        _weatherImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, weatherView.frame.size.width / 3, weatherView.frame.size.height)];
+        _weatherImgView.contentMode = UIViewContentModeScaleAspectFit;
+        _weatherImgView.backgroundColor = [UIColor redColor];
+        [weatherView addSubview:_weatherImgView];
         
-        NSString *sweather = [[NSString alloc]initWithFormat:@"%@\n%@~%@",[weatherDic objectForKey:KWEATHER_WEATHER], [weatherDic objectForKey:KWEATHER_TEMP_MIN], [weatherDic objectForKey:KWEATHER_TEMP_MAX]];
-        UILabel *weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(weatherImgView.frame.origin.x + weatherImgView.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
-        weatherLabel.numberOfLines = 0;
-        weatherLabel.backgroundColor = [UIColor clearColor];
-        weatherLabel.text = sweather;
-        [weatherView addSubview:weatherLabel];
+        _weatherLabel = [[UILabel alloc] initWithFrame:CGRectMake(_weatherImgView.frame.origin.x + _weatherImgView.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
+        _weatherLabel.numberOfLines = 0;
+        _weatherLabel.backgroundColor = [UIColor yellowColor];
+        [weatherView addSubview:_weatherLabel];
+        
+        _cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(_weatherLabel.frame.origin.x + _weatherLabel.frame.size.width, 0, weatherView.frame.size.width / 3 * 2, weatherView.frame.size.height)];
+        _cityLabel.numberOfLines = 0;
+        _cityLabel.backgroundColor = [UIColor blueColor];
+        [weatherView addSubview:_cityLabel];
+        
+        NSDictionary *weatherDic = [[XDWeatherManager shareWeather] weatherInfo];
+        [[XDWeatherManager shareWeather] updateWeatherInfoWithCompletion:^(BOOL finish){
+            if (!finish) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"定位失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            else{
+                NSString *sweather = [[NSString alloc]initWithFormat:@"%@\n%@~%@",[weatherDic objectForKey:KWEATHER_WEATHER], [weatherDic objectForKey:KWEATHER_TEMP_MIN], [weatherDic objectForKey:KWEATHER_TEMP_MAX]];
+                
+                _weatherImgView.image = [weatherDic objectForKey:KWEATHER_IMAGE];
+                _weatherLabel.text = sweather;
+                _cityLabel.text = @"1234";
+            }
+        }];
     }
     
     return _headerView;
