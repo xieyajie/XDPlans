@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class RichTextEditor;
 @interface XDAllPlansCell : UITableViewCell
 {
     UILabel *_indexLabel;
-    UILabel *_contentLabel;
+    UITextView *_contentView;
     UIButton *_actionButton;
 }
 

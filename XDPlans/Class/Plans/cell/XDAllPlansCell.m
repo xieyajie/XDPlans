@@ -31,15 +31,16 @@
         _indexLabel.font = [UIFont boldSystemFontOfSize:14.0];
         [self.contentView addSubview:_indexLabel];
         
-        _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 5, 320 - 90, 40)];
-//        _contentLabel.backgroundColor = [UIColor colorWithRed:247 / 255.0 green:241 / 255.0 blue:241 / 255.0 alpha:1.0];
-        _contentLabel.backgroundColor = [UIColor clearColor];
-//        _contentLabel.textColor = [UIColor colorWithRed:237 / 255.0 green:231 / 255.0 blue:231 / 255.0 alpha:1.0];
-        _contentLabel.textColor = [UIColor blackColor];
-        [self.contentView addSubview:_contentLabel];
+        _contentView = [[UITextView alloc] initWithFrame:CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 10, 320 - 90, 40)];
+        _contentView.scrollEnabled = NO;
+        _contentView.userInteractionEnabled = NO;
+        _contentView.backgroundColor = [UIColor clearColor];
+        _contentView.textColor = [UIColor blackColor];
+        _contentView.font = [UIFont systemFontOfSize:17.0];
+        [self.contentView addSubview:_contentView];
         
         _actionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _actionButton.frame = CGRectMake(_contentLabel.frame.origin.x + _contentLabel.frame.size.width + 10, 5, 20, _contentLabel.frame.size.height);
+        _actionButton.frame = CGRectMake(_contentView.frame.origin.x + _contentView.frame.size.width + 10, 10, 20, _contentView.frame.size.height);
         _actionButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_actionButton];
     }
@@ -62,7 +63,13 @@
 
 - (void)setContent:(NSString *)aContent
 {
-    _contentLabel.text = aContent;
+    _contentView.text = aContent;
+    CGSize size = [aContent sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByWordWrapping];
+    CGFloat height = size.height > 40 ? size.height : 40;
+    
+    _indexLabel.frame = CGRectMake(10, 10 + (height - 30) / 2, 30, 30);
+    _contentView.frame = CGRectMake(_indexLabel.frame.origin.x + _indexLabel.frame.size.width + 10, 10, 320 - 90, height);
+    _actionButton.frame = CGRectMake(_contentView.frame.origin.x + _contentView.frame.size.width + 10, 10, 20, height);
 }
 
 - (void)setAction:(BOOL)aAction
@@ -82,6 +89,18 @@
         
         [_actionButton setImage:[UIImage imageNamed:@"plans_unaction.png"] forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - setFrame
+
+- (void)setSubviewsFrameNormal
+{
+    
+}
+
+- (void)setSubviewsFrameEdit
+{
+    
 }
 
 @end

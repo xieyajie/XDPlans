@@ -9,6 +9,7 @@
 #import "XDAllPlansViewController.h"
 
 #import "XDAllPlansCell.h"
+#import "XDNewPlanViewController.h"
 #import "XDPlanLocalDefault.h"
 
 #define KPLANS_INDEX @"index"
@@ -62,6 +63,8 @@
     
     _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     [self.tableView addGestureRecognizer:_longPress];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPlanFinish:) name:KNOTIFICATION_PLANNEWFINISH object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,7 +151,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0f;
+    NSDictionary *dic = [_dataSource objectForKey:[NSString stringWithFormat:@"%i", indexPath.row]];
+    NSString *content = [dic objectForKey:KPLANS_CONTENT];
+    CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:17.0] constrainedToSize:CGSizeMake((320 - 110), 600) lineBreakMode:NSLineBreakByWordWrapping];
+    CGFloat height = size.height > 40 ? size.height : 40;
+    return height + 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,6 +177,21 @@
         UITextField *textField = [alertView textFieldAtIndex:0];
         if (textField.text.length > 0) {
             [self addEventToSource:textField.text];
+            [self insertEventToTableViewWithRow:0];
+        }
+    }
+}
+
+#pragma mark - notification
+
+- (void)newPlanFinish:(NSNotification *)notification
+{
+    id object = [notification object];
+    if ([object isKindOfClass:[NSString class]]) {
+        NSString *str = (NSString *)object;
+        
+        if (str.length > 0) {
+            [self addEventToSource:str];
             [self insertEventToTableViewWithRow:0];
         }
     }
@@ -205,10 +227,13 @@
 
 - (void)createEvent:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加想做的事" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加想做的事" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
+//    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    
+//    [alertView show];
     
-    [alertView show];
+    XDNewPlanViewController *newPlanVC = [[XDNewPlanViewController alloc] init];
+    [self.navigationController presentModalViewController:newPlanVC animated:YES];
 }
 
 - (void)stopMove:(id)sender

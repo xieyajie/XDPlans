@@ -168,6 +168,10 @@
 		3A8FA88017D5E73A0077BAFE /* account_contactsSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87C17D5E73A0077BAFE /* account_contactsSelected@2x.png */; };
 		3A8FA88117D5E73A0077BAFE /* account_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87D17D5E73A0077BAFE /* account_email@2x.png */; };
 		3A8FA88217D5E73A0077BAFE /* account_password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8FA87E17D5E73A0077BAFE /* account_password@2x.png */; };
+		3ABDC18717E545C600A970D7 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18417E545C600A970D7 /* icon_57.png */; };
+		3ABDC18817E545C600A970D7 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18517E545C600A970D7 /* icon_114.png */; };
+		3ABDC18917E545C600A970D7 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18617E545C600A970D7 /* icon_120.png */; };
+		3ABDC19017E5682300A970D7 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */; };
 		3AD7472417DA22E100A6A600 /* plans_paint_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */; };
 		3AD7472517DA22E100A6A600 /* plans_paint_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */; };
 		3AD7472C17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */; };
@@ -396,6 +400,11 @@
 		3A8FA87C17D5E73A0077BAFE /* account_contactsSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_contactsSelected@2x.png"; sourceTree = "<group>"; };
 		3A8FA87D17D5E73A0077BAFE /* account_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_email@2x.png"; sourceTree = "<group>"; };
 		3A8FA87E17D5E73A0077BAFE /* account_password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_password@2x.png"; sourceTree = "<group>"; };
+		3ABDC18417E545C600A970D7 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		3ABDC18517E545C600A970D7 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		3ABDC18617E545C600A970D7 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		3ABDC18E17E5682300A970D7 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
+		3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
 		3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_selected@2x.png"; sourceTree = "<group>"; };
 		3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_normal@2x.png"; sourceTree = "<group>"; };
 		3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_hideKeyboard@2x.png"; sourceTree = "<group>"; };
@@ -544,6 +553,8 @@
 				3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */,
 				3A38FC7817D9D01B00E4F233 /* XDActionPlanViewController.h */,
 				3A38FC7917D9D01B00E4F233 /* XDActionPlanViewController.m */,
+				3ABDC18E17E5682300A970D7 /* XDNewPlanViewController.h */,
+				3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -945,6 +956,9 @@
 		3AFBF61A17D21B2700CA9A56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3ABDC18417E545C600A970D7 /* icon_57.png */,
+				3ABDC18517E545C600A970D7 /* icon_114.png */,
+				3ABDC18617E545C600A970D7 /* icon_120.png */,
 				3A3B91AB17D30CC70055EC4A /* Images */,
 				3AFBF61B17D21B2700CA9A56 /* XDPlans-Info.plist */,
 				3AFBF61C17D21B2700CA9A56 /* InfoPlist.strings */,
@@ -1020,6 +1034,8 @@
 				3A4BD35417D6D905001F0D77 /* setting_send@2x.png in Resources */,
 				3A500B1917D876EB00461979 /* bullist@2x.png in Resources */,
 				3A8FA86617D576F60077BAFE /* MY_ICON_1@2x.png in Resources */,
+				3ABDC18917E545C600A970D7 /* icon_120.png in Resources */,
+				3ABDC18717E545C600A970D7 /* icon_57.png in Resources */,
 				3A45BCC617DDBE84003BA166 /* XDColor.plist in Resources */,
 				3A38FC6517D9A47C00E4F233 /* plans_color_16@2x.jpg in Resources */,
 				3A38FC6017D9A47C00E4F233 /* plans_color_11@2x.jpg in Resources */,
@@ -1075,6 +1091,7 @@
 				3A38FC3C17D969BA00E4F233 /* plans_summary_1@2x.png in Resources */,
 				3A38FC6B17D9A47C00E4F233 /* plans_color_21@2x.jpg in Resources */,
 				3A38FC6D17D9A47C00E4F233 /* plans_color_3@2x.jpg in Resources */,
+				3ABDC18817E545C600A970D7 /* icon_114.png in Resources */,
 				3A500B4017D876EB00461979 /* underline@2x.png in Resources */,
 				3A500B2017D876EB00461979 /* buttonrightSelected.png in Resources */,
 				3A500B3A17D876EB00461979 /* outdent@2x.png in Resources */,
@@ -1189,6 +1206,7 @@
 				3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */,
 				3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */,
 				3A38FC7A17D9D01B00E4F233 /* XDActionPlanViewController.m in Sources */,
+				3ABDC19017E5682300A970D7 /* XDNewPlanViewController.m in Sources */,
 				3A4BD34C17D6CCB0001F0D77 /* XDSettingViewController.m in Sources */,
 				3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */,
 				3A45BCC917DDBE84003BA166 /* XDMoodPicker.m in Sources */,
