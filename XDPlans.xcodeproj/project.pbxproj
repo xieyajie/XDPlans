@@ -172,6 +172,7 @@
 		3ABDC1AF17E5BCB400A970D7 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A317E5BCB400A970D7 /* XDMoodPicker.m */; };
 		3ABDC1B017E5BCB400A970D7 /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A517E5BCB400A970D7 /* XDTodayPlanCell.m */; };
 		3ABDC1B117E5BCB400A970D7 /* XDTodayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A717E5BCB400A970D7 /* XDTodayPlanViewController.m */; };
+		3ABDC1B417E5BD4300A970D7 /* XDActionPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1B317E5BD4300A970D7 /* XDActionPlanCell.m */; };
 		3AD7472417DA22E100A6A600 /* plans_paint_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */; };
 		3AD7472517DA22E100A6A600 /* plans_paint_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */; };
 		3AD7472C17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */; };
@@ -405,6 +406,8 @@
 		3ABDC1A517E5BCB400A970D7 /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
 		3ABDC1A617E5BCB400A970D7 /* XDTodayPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanViewController.h; sourceTree = "<group>"; };
 		3ABDC1A717E5BCB400A970D7 /* XDTodayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanViewController.m; sourceTree = "<group>"; };
+		3ABDC1B217E5BD4300A970D7 /* XDActionPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDActionPlanCell.h; sourceTree = "<group>"; };
+		3ABDC1B317E5BD4300A970D7 /* XDActionPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDActionPlanCell.m; sourceTree = "<group>"; };
 		3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_selected@2x.png"; sourceTree = "<group>"; };
 		3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_normal@2x.png"; sourceTree = "<group>"; };
 		3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_hideKeyboard@2x.png"; sourceTree = "<group>"; };
@@ -835,6 +838,8 @@
 			children = (
 				3ABDC19217E5BCB400A970D7 /* XDActionPlanViewController.h */,
 				3ABDC19317E5BCB400A970D7 /* XDActionPlanViewController.m */,
+				3ABDC1B217E5BD4300A970D7 /* XDActionPlanCell.h */,
+				3ABDC1B317E5BD4300A970D7 /* XDActionPlanCell.m */,
 			);
 			path = Action_plan;
 			sourceTree = "<group>";
@@ -1224,6 +1229,7 @@
 				3A500B5917D876EB00461979 /* RichTextEditor.m in Sources */,
 				3A500B4417D876EB00461979 /* UIFont+RichTextEditor.m in Sources */,
 				3A500B5717D876EB00461979 /* WEPopoverController.m in Sources */,
+				3ABDC1B417E5BD4300A970D7 /* XDActionPlanCell.m in Sources */,
 				3A500B5A17D876EB00461979 /* RichTextEditorColorPickerViewController.m in Sources */,
 				3A4BD34417D6C38B001F0D77 /* XDManagerHelper.m in Sources */,
 				3ABDC1AA17E5BCB400A970D7 /* XDAllPlansViewController.m in Sources */,
