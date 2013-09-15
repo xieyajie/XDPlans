@@ -38,21 +38,12 @@
 		3A38FC7217D9A47C00E4F233 /* plans_color_8@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC5C17D9A47C00E4F233 /* plans_color_8@2x.jpg */; };
 		3A38FC7317D9A47C00E4F233 /* plans_color_9@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC5D17D9A47C00E4F233 /* plans_color_9@2x.jpg */; };
 		3A38FC7717D9B8F400E4F233 /* plans_enabled_yes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC7517D9B8F400E4F233 /* plans_enabled_yes@2x.png */; };
-		3A38FC7A17D9D01B00E4F233 /* XDActionPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A38FC7917D9D01B00E4F233 /* XDActionPlanViewController.m */; };
 		3A38FC7D17D9D88500E4F233 /* plans_enabled_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A38FC7C17D9D88500E4F233 /* plans_enabled_no@2x.png */; };
 		3A3B91A117D2FBBC0055EC4A /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B919717D2FBBC0055EC4A /* JASidePanelController.m */; };
 		3A3B91A217D2FBBC0055EC4A /* UIViewController+JASidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B919917D2FBBC0055EC4A /* UIViewController+JASidePanel.m */; };
 		3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B919E17D2FBBC0055EC4A /* XDAppDelegate.m */; };
 		3A3B91A617D2FDF80055EC4A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3B91A517D2FDF80055EC4A /* QuartzCore.framework */; };
 		3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91A917D308850055EC4A /* XDMenuViewController.m */; };
-		3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */; };
-		3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */; };
-		3A45BCC417DDBE84003BA166 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */; };
-		3A45BCC517DDBE84003BA166 /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */; };
-		3A45BCC617DDBE84003BA166 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BCBD17DDBE84003BA166 /* XDColor.plist */; };
-		3A45BCC717DDBE84003BA166 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */; };
-		3A45BCC817DDBE84003BA166 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A45BCC117DDBE84003BA166 /* XDMood.plist */; };
-		3A45BCC917DDBE84003BA166 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */; };
 		3A4975CD17DEA30F00127470 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4975CC17DEA30F00127470 /* SystemConfiguration.framework */; };
 		3A4975CF17DEA32400127470 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4975CE17DEA32400127470 /* CoreLocation.framework */; };
 		3A4BD34417D6C38B001F0D77 /* XDManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BD34317D6C38B001F0D77 /* XDManagerHelper.m */; };
@@ -171,7 +162,16 @@
 		3ABDC18717E545C600A970D7 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18417E545C600A970D7 /* icon_57.png */; };
 		3ABDC18817E545C600A970D7 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18517E545C600A970D7 /* icon_114.png */; };
 		3ABDC18917E545C600A970D7 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC18617E545C600A970D7 /* icon_120.png */; };
-		3ABDC19017E5682300A970D7 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */; };
+		3ABDC1A817E5BCB400A970D7 /* XDActionPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC19317E5BCB400A970D7 /* XDActionPlanViewController.m */; };
+		3ABDC1A917E5BCB400A970D7 /* XDAllPlansCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC19617E5BCB400A970D7 /* XDAllPlansCell.m */; };
+		3ABDC1AA17E5BCB400A970D7 /* XDAllPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC19817E5BCB400A970D7 /* XDAllPlansViewController.m */; };
+		3ABDC1AB17E5BCB400A970D7 /* XDNewPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC19A17E5BCB400A970D7 /* XDNewPlanViewController.m */; };
+		3ABDC1AC17E5BCB400A970D7 /* XDColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC19D17E5BCB400A970D7 /* XDColor.plist */; };
+		3ABDC1AD17E5BCB400A970D7 /* XDColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC19F17E5BCB400A970D7 /* XDColorViewController.m */; };
+		3ABDC1AE17E5BCB400A970D7 /* XDMood.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A117E5BCB400A970D7 /* XDMood.plist */; };
+		3ABDC1AF17E5BCB400A970D7 /* XDMoodPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A317E5BCB400A970D7 /* XDMoodPicker.m */; };
+		3ABDC1B017E5BCB400A970D7 /* XDTodayPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A517E5BCB400A970D7 /* XDTodayPlanCell.m */; };
+		3ABDC1B117E5BCB400A970D7 /* XDTodayPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDC1A717E5BCB400A970D7 /* XDTodayPlanViewController.m */; };
 		3AD7472417DA22E100A6A600 /* plans_paint_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */; };
 		3AD7472517DA22E100A6A600 /* plans_paint_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */; };
 		3AD7472C17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */; };
@@ -237,8 +237,6 @@
 		3A38FC5C17D9A47C00E4F233 /* plans_color_8@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plans_color_8@2x.jpg"; sourceTree = "<group>"; };
 		3A38FC5D17D9A47C00E4F233 /* plans_color_9@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plans_color_9@2x.jpg"; sourceTree = "<group>"; };
 		3A38FC7517D9B8F400E4F233 /* plans_enabled_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_enabled_yes@2x.png"; sourceTree = "<group>"; };
-		3A38FC7817D9D01B00E4F233 /* XDActionPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDActionPlanViewController.h; sourceTree = "<group>"; };
-		3A38FC7917D9D01B00E4F233 /* XDActionPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDActionPlanViewController.m; sourceTree = "<group>"; };
 		3A38FC7C17D9D88500E4F233 /* plans_enabled_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_enabled_no@2x.png"; sourceTree = "<group>"; };
 		3A3B919617D2FBBC0055EC4A /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASidePanelController.h; sourceTree = "<group>"; };
 		3A3B919717D2FBBC0055EC4A /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASidePanelController.m; sourceTree = "<group>"; };
@@ -249,20 +247,6 @@
 		3A3B91A517D2FDF80055EC4A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A3B91A817D308850055EC4A /* XDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMenuViewController.h; sourceTree = "<group>"; };
 		3A3B91A917D308850055EC4A /* XDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMenuViewController.m; sourceTree = "<group>"; };
-		3A3B91C117D310CA0055EC4A /* XDTodayPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanViewController.h; sourceTree = "<group>"; };
-		3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanViewController.m; sourceTree = "<group>"; };
-		3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
-		3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
-		3A45BCB817DDBE84003BA166 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
-		3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
-		3A45BCBA17DDBE84003BA166 /* XDTodayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanCell.h; sourceTree = "<group>"; };
-		3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
-		3A45BCBD17DDBE84003BA166 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
-		3A45BCBE17DDBE84003BA166 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
-		3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
-		3A45BCC117DDBE84003BA166 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
-		3A45BCC217DDBE84003BA166 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
-		3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
 		3A4975CC17DEA30F00127470 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A4975CE17DEA32400127470 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A4BD34217D6C38B001F0D77 /* XDManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDManagerHelper.h; sourceTree = "<group>"; };
@@ -403,8 +387,24 @@
 		3ABDC18417E545C600A970D7 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
 		3ABDC18517E545C600A970D7 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		3ABDC18617E545C600A970D7 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
-		3ABDC18E17E5682300A970D7 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
-		3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
+		3ABDC19217E5BCB400A970D7 /* XDActionPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDActionPlanViewController.h; sourceTree = "<group>"; };
+		3ABDC19317E5BCB400A970D7 /* XDActionPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDActionPlanViewController.m; sourceTree = "<group>"; };
+		3ABDC19517E5BCB400A970D7 /* XDAllPlansCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansCell.h; sourceTree = "<group>"; };
+		3ABDC19617E5BCB400A970D7 /* XDAllPlansCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansCell.m; sourceTree = "<group>"; };
+		3ABDC19717E5BCB400A970D7 /* XDAllPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDAllPlansViewController.h; sourceTree = "<group>"; };
+		3ABDC19817E5BCB400A970D7 /* XDAllPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDAllPlansViewController.m; sourceTree = "<group>"; };
+		3ABDC19917E5BCB400A970D7 /* XDNewPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDNewPlanViewController.h; sourceTree = "<group>"; };
+		3ABDC19A17E5BCB400A970D7 /* XDNewPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDNewPlanViewController.m; sourceTree = "<group>"; };
+		3ABDC19D17E5BCB400A970D7 /* XDColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDColor.plist; sourceTree = "<group>"; };
+		3ABDC19E17E5BCB400A970D7 /* XDColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDColorViewController.h; sourceTree = "<group>"; };
+		3ABDC19F17E5BCB400A970D7 /* XDColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDColorViewController.m; sourceTree = "<group>"; };
+		3ABDC1A117E5BCB400A970D7 /* XDMood.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XDMood.plist; sourceTree = "<group>"; };
+		3ABDC1A217E5BCB400A970D7 /* XDMoodPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDMoodPicker.h; sourceTree = "<group>"; };
+		3ABDC1A317E5BCB400A970D7 /* XDMoodPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDMoodPicker.m; sourceTree = "<group>"; };
+		3ABDC1A417E5BCB400A970D7 /* XDTodayPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanCell.h; sourceTree = "<group>"; };
+		3ABDC1A517E5BCB400A970D7 /* XDTodayPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanCell.m; sourceTree = "<group>"; };
+		3ABDC1A617E5BCB400A970D7 /* XDTodayPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDTodayPlanViewController.h; sourceTree = "<group>"; };
+		3ABDC1A717E5BCB400A970D7 /* XDTodayPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDTodayPlanViewController.m; sourceTree = "<group>"; };
 		3AD7472217DA22E100A6A600 /* plans_paint_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_selected@2x.png"; sourceTree = "<group>"; };
 		3AD7472317DA22E100A6A600 /* plans_paint_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_paint_normal@2x.png"; sourceTree = "<group>"; };
 		3AD7472B17DA2D8A00A6A600 /* plans_hideKeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plans_hideKeyboard@2x.png"; sourceTree = "<group>"; };
@@ -492,12 +492,14 @@
 		3A3B919217D2FBBC0055EC4A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				3ABDC19117E5BCB400A970D7 /* Action_plan */,
+				3ABDC19417E5BCB400A970D7 /* All_plans */,
+				3ABDC19B17E5BCB400A970D7 /* Today_plan */,
 				3A56B61717D4447200FF6400 /* Manager */,
 				3A3B91A717D308540055EC4A /* Menu */,
 				3A3B919317D2FBBC0055EC4A /* Account */,
 				3A3B919417D2FBBC0055EC4A /* CustomControls */,
 				3A3B919A17D2FBBC0055EC4A /* guide */,
-				3A3B919B17D2FBBC0055EC4A /* Plans */,
 				3A3B919C17D2FBBC0055EC4A /* Setting */,
 				3A3B919D17D2FBBC0055EC4A /* XDAppDelegate.h */,
 				3A3B919E17D2FBBC0055EC4A /* XDAppDelegate.m */,
@@ -541,24 +543,6 @@
 			path = guide;
 			sourceTree = "<group>";
 		};
-		3A3B919B17D2FBBC0055EC4A /* Plans */ = {
-			isa = PBXGroup;
-			children = (
-				3A45BCB717DDBE84003BA166 /* cell */,
-				3A45BCBC17DDBE84003BA166 /* color */,
-				3A45BCC017DDBE84003BA166 /* mood */,
-				3A3B91C117D310CA0055EC4A /* XDTodayPlanViewController.h */,
-				3A3B91C217D310CA0055EC4A /* XDTodayPlanViewController.m */,
-				3A3B91C417D310E10055EC4A /* XDAllPlansViewController.h */,
-				3A3B91C517D310E10055EC4A /* XDAllPlansViewController.m */,
-				3A38FC7817D9D01B00E4F233 /* XDActionPlanViewController.h */,
-				3A38FC7917D9D01B00E4F233 /* XDActionPlanViewController.m */,
-				3ABDC18E17E5682300A970D7 /* XDNewPlanViewController.h */,
-				3ABDC18F17E5682300A970D7 /* XDNewPlanViewController.m */,
-			);
-			path = Plans;
-			sourceTree = "<group>";
-		};
 		3A3B919C17D2FBBC0055EC4A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,37 +575,6 @@
 				3A56B62817D4758200FF6400 /* Menu */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		3A45BCB717DDBE84003BA166 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				3A45BCB817DDBE84003BA166 /* XDAllPlansCell.h */,
-				3A45BCB917DDBE84003BA166 /* XDAllPlansCell.m */,
-				3A45BCBA17DDBE84003BA166 /* XDTodayPlanCell.h */,
-				3A45BCBB17DDBE84003BA166 /* XDTodayPlanCell.m */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		3A45BCBC17DDBE84003BA166 /* color */ = {
-			isa = PBXGroup;
-			children = (
-				3A45BCBD17DDBE84003BA166 /* XDColor.plist */,
-				3A45BCBE17DDBE84003BA166 /* XDColorViewController.h */,
-				3A45BCBF17DDBE84003BA166 /* XDColorViewController.m */,
-			);
-			path = color;
-			sourceTree = "<group>";
-		};
-		3A45BCC017DDBE84003BA166 /* mood */ = {
-			isa = PBXGroup;
-			children = (
-				3A45BCC117DDBE84003BA166 /* XDMood.plist */,
-				3A45BCC217DDBE84003BA166 /* XDMoodPicker.h */,
-				3A45BCC317DDBE84003BA166 /* XDMoodPicker.m */,
-			);
-			path = mood;
 			sourceTree = "<group>";
 		};
 		3A4BD34517D6CA47001F0D77 /* Share */ = {
@@ -877,6 +830,61 @@
 			path = account;
 			sourceTree = "<group>";
 		};
+		3ABDC19117E5BCB400A970D7 /* Action_plan */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDC19217E5BCB400A970D7 /* XDActionPlanViewController.h */,
+				3ABDC19317E5BCB400A970D7 /* XDActionPlanViewController.m */,
+			);
+			path = Action_plan;
+			sourceTree = "<group>";
+		};
+		3ABDC19417E5BCB400A970D7 /* All_plans */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDC19517E5BCB400A970D7 /* XDAllPlansCell.h */,
+				3ABDC19617E5BCB400A970D7 /* XDAllPlansCell.m */,
+				3ABDC19717E5BCB400A970D7 /* XDAllPlansViewController.h */,
+				3ABDC19817E5BCB400A970D7 /* XDAllPlansViewController.m */,
+				3ABDC19917E5BCB400A970D7 /* XDNewPlanViewController.h */,
+				3ABDC19A17E5BCB400A970D7 /* XDNewPlanViewController.m */,
+			);
+			path = All_plans;
+			sourceTree = "<group>";
+		};
+		3ABDC19B17E5BCB400A970D7 /* Today_plan */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDC19C17E5BCB400A970D7 /* color */,
+				3ABDC1A017E5BCB400A970D7 /* mood */,
+				3ABDC1A417E5BCB400A970D7 /* XDTodayPlanCell.h */,
+				3ABDC1A517E5BCB400A970D7 /* XDTodayPlanCell.m */,
+				3ABDC1A617E5BCB400A970D7 /* XDTodayPlanViewController.h */,
+				3ABDC1A717E5BCB400A970D7 /* XDTodayPlanViewController.m */,
+			);
+			path = Today_plan;
+			sourceTree = "<group>";
+		};
+		3ABDC19C17E5BCB400A970D7 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDC19D17E5BCB400A970D7 /* XDColor.plist */,
+				3ABDC19E17E5BCB400A970D7 /* XDColorViewController.h */,
+				3ABDC19F17E5BCB400A970D7 /* XDColorViewController.m */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		3ABDC1A017E5BCB400A970D7 /* mood */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDC1A117E5BCB400A970D7 /* XDMood.plist */,
+				3ABDC1A217E5BCB400A970D7 /* XDMoodPicker.h */,
+				3ABDC1A317E5BCB400A970D7 /* XDMoodPicker.m */,
+			);
+			path = mood;
+			sourceTree = "<group>";
+		};
 		3AE2C9BA17D4C7A60020C93F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,17 +1044,16 @@
 				3A8FA86617D576F60077BAFE /* MY_ICON_1@2x.png in Resources */,
 				3ABDC18917E545C600A970D7 /* icon_120.png in Resources */,
 				3ABDC18717E545C600A970D7 /* icon_57.png in Resources */,
-				3A45BCC617DDBE84003BA166 /* XDColor.plist in Resources */,
 				3A38FC6517D9A47C00E4F233 /* plans_color_16@2x.jpg in Resources */,
 				3A38FC6017D9A47C00E4F233 /* plans_color_11@2x.jpg in Resources */,
 				3A500B3017D876EB00461979 /* justifyfull.png in Resources */,
 				3A56B63117D4758200FF6400 /* menu_todayPlan@2x.png in Resources */,
-				3A45BCC817DDBE84003BA166 /* XDMood.plist in Resources */,
 				3AFBF61E17D21B2700CA9A56 /* InfoPlist.strings in Resources */,
 				3A500B1717D876EB00461979 /* bold@2x.png in Resources */,
 				3A500B4917D876EB00461979 /* popoverArrowLeft.png in Resources */,
 				3A500B2A17D876EB00461979 /* indent.png in Resources */,
 				3A500B1D17D876EB00461979 /* buttonleft.png in Resources */,
+				3ABDC1AE17E5BCB400A970D7 /* XDMood.plist in Resources */,
 				3A38FC7717D9B8F400E4F233 /* plans_enabled_yes@2x.png in Resources */,
 				3A8FA86717D576F60077BAFE /* MY_ICON_2@2x.png in Resources */,
 				3A500B2417D876EB00461979 /* code.png in Resources */,
@@ -1153,6 +1160,7 @@
 				3AE2C9D917D4C7A60020C93F /* 小雪.png in Resources */,
 				3A500B2817D876EB00461979 /* forecolor.png in Resources */,
 				3AE2C9DA17D4C7A60020C93F /* 晴.png in Resources */,
+				3ABDC1AC17E5BCB400A970D7 /* XDColor.plist in Resources */,
 				3AE2C9DB17D4C7A60020C93F /* 阴.png in Resources */,
 				3A38FC6417D9A47C00E4F233 /* plans_color_15@2x.jpg in Resources */,
 				3A500B2F17D876EB00461979 /* justifycenter@2x.png in Resources */,
@@ -1190,14 +1198,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABDC1AD17E5BCB400A970D7 /* XDColorViewController.m in Sources */,
 				3AFBF62017D21B2700CA9A56 /* main.m in Sources */,
+				3ABDC1B117E5BCB400A970D7 /* XDTodayPlanViewController.m in Sources */,
 				3A500B6217D8772000461979 /* XDCutImageViewController.m in Sources */,
 				3A3B91A117D2FBBC0055EC4A /* JASidePanelController.m in Sources */,
-				3A45BCC717DDBE84003BA166 /* XDColorViewController.m in Sources */,
+				3ABDC1A817E5BCB400A970D7 /* XDActionPlanViewController.m in Sources */,
 				3A8FA87917D5CD600077BAFE /* XDAccountLoginViewController.m in Sources */,
+				3ABDC1A917E5BCB400A970D7 /* XDAllPlansCell.m in Sources */,
+				3ABDC1AB17E5BCB400A970D7 /* XDNewPlanViewController.m in Sources */,
 				3A500B5817D876EB00461979 /* WETouchableView.m in Sources */,
 				3A500B5617D876EB00461979 /* WEPopoverContainerView.m in Sources */,
 				3A500B5C17D876EB00461979 /* RichTextEditorFontSizePickerViewController.m in Sources */,
+				3ABDC1AF17E5BCB400A970D7 /* XDMoodPicker.m in Sources */,
 				3A500B5B17D876EB00461979 /* RichTextEditorFontPickerViewController.m in Sources */,
 				3A500B5D17D876EB00461979 /* RichTextEditorToggleButton.m in Sources */,
 				3A3B91A217D2FBBC0055EC4A /* UIViewController+JASidePanel.m in Sources */,
@@ -1205,23 +1218,18 @@
 				3A500B5E17D876EB00461979 /* RichTextEditorToolbar.m in Sources */,
 				3A56B61B17D4447200FF6400 /* UIColor+Category.m in Sources */,
 				3A3B91A317D2FBBC0055EC4A /* XDAppDelegate.m in Sources */,
-				3A38FC7A17D9D01B00E4F233 /* XDActionPlanViewController.m in Sources */,
-				3ABDC19017E5682300A970D7 /* XDNewPlanViewController.m in Sources */,
 				3A4BD34C17D6CCB0001F0D77 /* XDSettingViewController.m in Sources */,
+				3ABDC1B017E5BCB400A970D7 /* XDTodayPlanCell.m in Sources */,
 				3A3B91AA17D308850055EC4A /* XDMenuViewController.m in Sources */,
-				3A45BCC917DDBE84003BA166 /* XDMoodPicker.m in Sources */,
 				3A500B5917D876EB00461979 /* RichTextEditor.m in Sources */,
 				3A500B4417D876EB00461979 /* UIFont+RichTextEditor.m in Sources */,
 				3A500B5717D876EB00461979 /* WEPopoverController.m in Sources */,
-				3A45BCC417DDBE84003BA166 /* XDAllPlansCell.m in Sources */,
-				3A3B91C317D310CA0055EC4A /* XDTodayPlanViewController.m in Sources */,
 				3A500B5A17D876EB00461979 /* RichTextEditorColorPickerViewController.m in Sources */,
-				3A3B91C617D310E10055EC4A /* XDAllPlansViewController.m in Sources */,
 				3A4BD34417D6C38B001F0D77 /* XDManagerHelper.m in Sources */,
+				3ABDC1AA17E5BCB400A970D7 /* XDAllPlansViewController.m in Sources */,
 				3A56B61F17D45FA600FF6400 /* XDMenuCell.m in Sources */,
 				3AE2C9E517D4C7FB0020C93F /* XDWeatherManager.m in Sources */,
 				3A500B5517D876EB00461979 /* UIBarButtonItem+WEPopover.m in Sources */,
-				3A45BCC517DDBE84003BA166 /* XDTodayPlanCell.m in Sources */,
 				3A500B4317D876EB00461979 /* NSAttributedString+RichTextEditor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
